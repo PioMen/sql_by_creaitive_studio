@@ -1,1 +1,1 @@
-Sitemap: https://piomen.github.io/sql_by_creaitive_studio/sitemap.xml
+Sitemap: https://creaitive.studio/sitemap.xml
