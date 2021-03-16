@@ -1,1 +1,1 @@
-Sitemap: https://creaitive.studio/sql/sitemap.xml
+Sitemap: https://creaitive.studio/sitemap.xml
