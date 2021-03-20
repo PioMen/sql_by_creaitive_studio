@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SQL is fun! | creaitive.studio</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="SQL is fun!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A dive into a friendly world of SQL." />
+<meta property="og:description" content="A dive into a friendly world of SQL." />
+<link rel="canonical" href="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html" />
+<meta property="og:url" content="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html" />
+<meta property="og:site_name" content="creaitive.studio" />
+<meta property="og:image" content="https://creaitive.studio/images/chart-preview.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html","@type":"BlogPosting","headline":"SQL is fun!","dateModified":"2021-03-18T00:00:00-05:00","datePublished":"2021-03-18T00:00:00-05:00","image":"https://creaitive.studio/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html"},"description":"A dive into a friendly world of SQL.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://creaitive.studio/feed.xml" title="creaitive.studio" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">creaitive.studio</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SQL is fun!</h1><p class="page-description">A dive into a friendly world of SQL.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-18T00:00:00-05:00" itemprop="datePublished">
+        Mar 18, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#sql">sql</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#SQL-in-action">SQL in action </a></li>
+<li class="toc-entry toc-h2"><a href="#Building-your-first-end-to-end-project">Building your first end-to-end project </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Download-the-data">Download the data </a></li>
+<li class="toc-entry toc-h3"><a href="#Install-the-database">Install the database </a></li>
+<li class="toc-entry toc-h3"><a href="#Interact-with-your-database">Interact with your database </a></li>
+<li class="toc-entry toc-h3"><a href="#Import-the-data">Import the data </a></li>
+<li class="toc-entry toc-h3"><a href="#Run-your-first-SQL-query">Run your first SQL query </a></li>
+<li class="toc-entry toc-h3"><a href="#Visualize-your-insights">Visualize your insights </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-03-18-01_intro_big_query.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="SQL-in-action">
+<a class="anchor" href="#SQL-in-action" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQL in action<a class="anchor-link" href="#SQL-in-action"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>TODO: use case demo + some intro</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Building-your-first-end-to-end-project">
+<a class="anchor" href="#Building-your-first-end-to-end-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building your first end-to-end project<a class="anchor-link" href="#Building-your-first-end-to-end-project"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that you saw an example of data project using SQL, you'll see how to build such project yourself.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Download-the-data">
+<a class="anchor" href="#Download-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download the data<a class="anchor-link" href="#Download-the-data"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can't do analytics without data. How you actually get it, depends on your project. When working on a business project, you may find the crucial datasets in a database of your company. That's quite convenient as you don't have to prepare and upload the data yourself.</p>
+<p>Eventually you may stumble upon a limitations of the data at your disposal. Or you may want to work on your personal project, where you need to create your dataset from scratch. In such cases, ability to explore and use publically available datasets can be a very useful skill. There's no golden rule, but you might want to check sites like <a href="https://www.kaggle.com/datasets">Kaggle</a>, <a href="https://github.com/awesomedata/awesome-public-datasets">this repo</a>, <a href="https://datasetsearch.research.google.com/">Dataset Search by Google</a> or <a href="https://www.reddit.com/r/datasets/">this subreddit</a> looking for the right data for you.</p>
+<p>In our example, we'll use the data on COVID-19 vaccinations shared by Our World in Data. You can find it in <a href="https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations">this repo</a>. To download the data, follow the steps:</p>
+<ul>
+<li>visit <a href="https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv">this link</a>,</li>
+<li>click on the little <code>Raw</code> button in the upper right corner,</li>
+<li>when you see a comma delimited text right-click on top of it and select <code>Save as..</code> option to save the file on your computer.
+<code>TODO: screnshoots to bullets above?</code>
+<code>TODO: you might be wondering if there is a better way to download this file, clone repo? curl?</code>
+</li>
+</ul>
+<p>Congratulations, you've just completed the first step to get your data project up and running!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-the-database">
+<a class="anchor" href="#Install-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the database<a class="anchor-link" href="#Install-the-database"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Do you remember the cult movie from 1999 "The Matrix"? There was this very memorable scene where Neo was given a choice between two pills, the red one and the blue one. He had a one in a lifetime opportunity to decide whether he wants to go on living in lie or find out the truth.</p>
+<p>There are two remarkable ascpects of this decision. First, one of the options feels to be objectively more "correct". No one wants his life to be a lie. Secondly, after making this decision, there was no way back, which made it an extremely difficult choice.</p>
+<p>At this point of the book, you also need to make a decision. There are many different database solutions and many different SQL flavours. This book covers couple of them, so you need to pick the one that you'll move on with. Compared to the dilemma that Neo faced, the decision that you are going to make is both easier and more difficult at the same time.</p>
+<p>It's more difficult, because there is no answer which is more "correct" than the others. All solutions discussed in this book are widely used. All of them have advantages and disadvantages and there is no "the right choice". Fortunately, unlike the Neo, you don't need to live with this decision for the rest of your life. Quite the opposite! You can start with one tool and later on come back to try another one.</p>
+<p>It gets even better than that. There is a standard that describes the principles of the SQL language. It means that even if you learn one implementation of the SQL (e.g. SQLite) and want to switch to another one (e.g. PostgreSQL), you should be able to transfer most of your knowledge. To be clear, it doesn't mean that each vendor implements the language in an identical way. They try to follow the standard to some degree but there are some differences. Those discrepancie however are reasonable enough to make your knowledge universal most of the time.</p>
+<p>sql lite default</p>
+<p><code>TODO: matrix/table showing prons/cons of starting with each of the solutions</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interact-with-your-database">
+<a class="anchor" href="#Interact-with-your-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interact with your database<a class="anchor-link" href="#Interact-with-your-database"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Import-the-data">
+<a class="anchor" href="#Import-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Import the data<a class="anchor-link" href="#Import-the-data"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Run-your-first-SQL-query">
+<a class="anchor" href="#Run-your-first-SQL-query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run your first SQL query<a class="anchor-link" href="#Run-your-first-SQL-query"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we'll go through the <em>SQL query</em> that was used to prepare the data for our report. A <em>query</em> is a piece of SQL code that you use to get the data from the database. You can also use it to do all kinds of manipulations, like: aggregations, custom calculations, filtering, sorting and so on.</p>
+<p>One of the reasons that I'm such a huge fan of the SQL is its friendliness. SQL is a declarative language. It means that you don't need to specify all the low-lewel operations to get the desired result. You just need to describe the final outcome and the database will figure out the rest for you.</p>
+<p><code>TODO: diagram to illustrate the point above</code></p>
+<p>If you have some basic knowledge of English, you may be suprised that a simple SQL query can be nearly understandable to you.</p>
+<p><code>TODO: simple SQL</code></p>
+<p>It almost feels like a pseudocode. The cool thing is that it's an actual working query.</p>
+<p><code>TODO: explain the meaning of select, from etc.</code></p>
+<p>Let's see what happens when you run this code.</p>
+<p><code>TODO: run code and show results from db</code>
+You can now try to execute this query inside the database managament app of your choice.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Visualize-your-insights">
+<a class="anchor" href="#Visualize-your-insights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualize your insights<a class="anchor-link" href="#Visualize-your-insights"> </a>
+</h3>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/sql/2021/03/18/01_intro_big_query.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A friendly way of learning.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
