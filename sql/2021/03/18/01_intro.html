@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      10 min read
     
 </span></p>
 
@@ -108,7 +108,13 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#Download-the-data">Download the data </a></li>
 <li class="toc-entry toc-h3"><a href="#Choose-the-database">Choose the database </a></li>
-<li class="toc-entry toc-h3"><a href="#Install-the-database">Install the database </a></li>
+<li class="toc-entry toc-h3">
+<a href="#Install-the-database">Install the database </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#SQLite-introduction">SQLite introduction </a></li>
+<li class="toc-entry toc-h4"><a href="#SQLite-installation">SQLite installation </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#Interact-with-your-database">Interact with your database </a></li>
 <li class="toc-entry toc-h3"><a href="#Import-the-data">Import the data </a></li>
 <li class="toc-entry toc-h3"><a href="#Run-your-first-SQL-query">Run your first SQL query </a></li>
@@ -125,6 +131,15 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>TODO: screenshots OR GIFS for instruction</code></p>
+<p><code>TODO: schemas, diagram to make it more pleasant to read</code></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -203,12 +218,17 @@ window.onload = wrap_img;
 <p>There are two remarkable ascpects of this decision. First, one of the options feels to be objectively more "correct". No one wants his life to be a lie. Secondly, after making this decision, there was no way back, which made it an extremely difficult choice.</p>
 <p>At this point of the book, you also need to make a decision. There are many different database solutions and many different SQL flavours. This book covers couple of them, so you need to pick the one that you'll move on with. Compared to the dilemma that Neo faced, the decision that you are going to make is both easier and more difficult at the same time.</p>
 <p>It's more difficult, because there is no answer which is more "correct" than the others. All solutions discussed in this book are widely used. All of them have advantages and disadvantages and there is no "the right choice". Fortunately, unlike the Neo, you don't need to live with this decision for the rest of your life. Quite the opposite! You can start with one tool and later on come back to try another one.</p>
-<p>It gets even better than that. There is a standard that describes the principles of the SQL language. It means that even if you learn one implementation of the SQL (e.g. SQLite) and want to switch to another one (e.g. PostgreSQL), you should be able to transfer most of your knowledge. To be clear, it doesn't mean that each vendor implements the language in an identical way. They try to follow the standard to some degree but there are some differences. Those discrepancie however are reasonable enough to make your knowledge universal most of the time.</p>
+<p>It gets even better than that. There is a standard that describes the principles of the SQL language. It means that even if you learn one implementation of the SQL (e.g. SQLite) and want to switch to another one (e.g. PostgreSQL), you should be able to transfer most of your knowledge. To be clear, it doesn't mean that each vendor implements the language in an identical way. They try to follow the standard to some degree but there are some differences. Those discrepancie however are reasonable enough to make your knowledge universal most of the time. You will see a note whenever we stamble upon a solution that is very specific to given tool.</p>
 <p>Let's now start working on the database installation. In this book we use SQLite as a default option to show you the process. If you want to see instructions for other databases, visit one of the links:</p>
 <ul>
 <li>Big Query (todo: in the backlog): <a href="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html">link</a>,</li>
 <li>SQLite via Python (todo: in the backlog): link,</li>
-<li>PostgreSQL (todo: in the backlog): link.</li>
+<li>PostgreSQL (todo: in the backlog): link.
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>As for now, the book shows all the steps needed to install the database on Windows 10. If you’re using other OS, you might want to pick Big Query. Having a browser installed is the only requirement to make it work.
+</div>
+</li>
 </ul>
 <p><code>TODO: matrix/table showing prons/cons of starting with each of the solutions</code>
 <code>TODO: maybe more info in general about different dbs</code></p>
@@ -229,8 +249,17 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="SQLite-introduction">
+<a class="anchor" href="#SQLite-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQLite introduction<a class="anchor-link" href="#SQLite-introduction"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>In this section you'll see how to install the SQLite database. One of the reasons that SQLite is particurarly good starting point for learning is its simplicity. The entire database is contained in just one file. Setting it up is trivial. It requires hardly any installation and no configuration at all. It's free, so you can use it to its limits without worring about the costs.</p>
-<p>Beware and don't let the simplicity disguise you. It is a fully reliable database with the features that you would expect from the modern SQL database. It's characteristics make it a perfect choice for:</p>
+<p>Beware and don't let the simplicity disguise you. It is a fully reliable database with most of the features that you would expect from the modern SQL database. It's characteristics make it a perfect choice for:</p>
 <ul>
 <li>smartphonoes and other devices,</li>
 <li>websites,</li>
@@ -244,18 +273,74 @@ window.onload = wrap_img;
 <li>simultaneous modification of the data by many users,</li>
 <li>working with very large amounts of data (although it officially can handle up to 281 terabytes, having to keep it in one file is the bottleneck here).</li>
 </ul>
-<p>It also has some unusual behaviours that are distinct from what you will find anywhere else. Everytime we face such behaviour, you will see a warning. You can also get familiar with the full list in advance using <a href="https://www.sqlite.org/quirks.html">the official documentation</a>. You can see an example of the warning below.
-</p>
-<div class="flash flash-warn">
-    <svg class="octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
-    <strong>Important: </strong>SQLite is not a replacement for more traditional solutions. Unlike most databases it doesn’t come with a dedicated server process and it’s self-contained in a file. It has its own, specific problem that it’s trying to solve.
-</div>
-<p>There's no perfect solution but the features of SQLite make it an amazing candidate for learning. With SQLite you'll get a great "use the SQL in practice" to "try to setup the database" ratio. And remember, you're not like Neo. You can always start with one option and switch to something else in the future <img class="emoji" title=":shipit:" alt=":shipit:" src="https://github.githubassets.com/images/icons/emoji/shipit.png" height="20" width="20">
+<p>It also has some unusual behaviours that are distinct from what you will find anywhere else. Everytime we face such behaviour, you will see be informed about it. You can also get familiar with the full list in advance using <a href="https://www.sqlite.org/quirks.html">the official documentation</a>. You can an example of a note below.
 </p>
 <div class="flash">
-    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>SQLite is not a replacement for more traditional solutions. Unlike most databases it doesn’t come with a dedicated server process and it’s self-contained in a file. It has its own, specific problem that it’s trying to solve.
+    <svg class="octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>SQLite is not a replacement for more traditional solutions. Unlike most databases it doesn’t come with a dedicated server. That’s why the use cases for this tool are different from use cases handled by standard database management systems.
 </div>
+<p>At this point you should be aware that there's no single perfect database solution. Features of SQLite make it an amazing candidate for learning and that's why we use it as a default technology in this book. With SQLite you'll get a great ratio of "using the SQL" vs "trying to setup the database". Finally, if you're not sure which technology you should start with, remember, you're not like Neo. You are free to start with one option and switch to something else whenever you want. Most of your knowledge will be easily transferable.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="SQLite-installation">
+<a class="anchor" href="#SQLite-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQLite installation<a class="anchor-link" href="#SQLite-installation"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>TODO: here or earlier - database installation is needed to follow the excercises</code></p>
+<p>You'll now see how to set up your own SQLite database. As mentioned before, this instruction shows how to do it in Windows 10. Let's get started <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"></p>
+<ol>
+<li>
+<p>First you need to visit the SQLite <a href="https://www.sqlite.org/download.html">Download Page</a>. You'll see a list with different sections. Go to "Precompiled Binaries for Windows" and find the link for "bundle of command-line tools". Click on the link to download the zip file.</p>
+</li>
+<li>
+<p>Right click the zip file and uncompress it. SQLite is portable, you don't need to install it. Actually, you can start using it right now.</p>
+</li>
+<li>
+<p>Go to catalog with three files: "sqldiff.exe", "sqlite3.exe" and "sqlite3_analyzer.exe". Make the name more concise an readable, like: "sqlite" and move it to the directory where you would like to keep it (e.g. "C:\").</p>
+</li>
+<li>
+<p>Open command line tool of your choice, e.g. "Windows PowerShell". Don't panic if this is the first time you're using it. It should be installed on your computer by default. Just follow the instructions and you'll be fine. In the following points, we'll use terms <code>shell</code>, <code>command line</code>, <code>terminal</code>, <code>console</code> as synonyms for whatever command line tool that you're using.</p>
+</li>
+</ol>
+<p><code>TODO: maybe hint: you can see names like ..., ..., - these are just different ways of calling ...</code></p>
+<ol>
+<li>
+<p>Inside your command line tool, you'd like to see the folder where you've just moved SQLite files. Use the following command and after replacing <code>your_path</code> with the actual path to your folder hit <code>enter</code>: <code>cd your_path</code>.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>If you don’t know how to get the path to you folder, you can use a little trick. Right-click on the icon of this folder, go to <code>Properties</code>, select <code>Security</code> tab and copy the full content of <code>Object name:</code>. 
+</div>
+You can double check if it worked by using <code>ls</code> command inside your shell. After running it (just hit <code>enter</code>), you should see your three files.
+</li>
+<li>
+<p>Being inside this folder, you can create your first database. Just type in <code>.\sqlite3.exe test.db</code> and hit <code>enter</code> once again. The command should create a database called <code>test.db</code> inside your current folder. Remember that SQLite database is just a file? You can double check if your database was created using <code>ls</code> command or just going to this folder like standard Windows file browser.<br>
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>If you don’t see the file with your database, try typing in <code>.databases</code> in your shell and double check once again.
+</div>
+</li>
+<li>
+<p>You can now close your terminal, as we'll use a more beginner-friendly way of interacting with the database. Inside your console first hit <code>ctrl</code> + <code>c</code> buttons to close sqlite prompt. Next, close your terminal as any other windows application by clicking <img class="emoji" title=":x:" alt=":x:" src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png" height="20" width="20"> button.</p>
+</li>
+<li>
+<p>Congratulations, you have just created an SQLite database! You can check the next, optional point or move on to the next section.</p>
+</li>
+<li>
+<p>(OPTIONAL) If you work with SQLite prompt frequently, it might be inconvenient for you to go inside specific folder each time you want to run it. You can avoid it using "environment variables" in Windows 10.</p>
+</li>
+</ol>
 
 </div>
 </div>
