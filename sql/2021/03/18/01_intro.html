@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      9 min read
     
 </span></p>
 
@@ -306,40 +306,20 @@ window.onload = wrap_img;
 <p>Right click the zip file and uncompress it. SQLite is portable, you don't need to install it. Actually, you can start using it right now.</p>
 </li>
 <li>
-<p>Go to catalog with three files: "sqldiff.exe", "sqlite3.exe" and "sqlite3_analyzer.exe". Make the name more concise an readable, like: "sqlite" and move it to the directory where you would like to keep it (e.g. "C:\").</p>
+<p>Go to catalog with three files: "sqldiff.exe", "sqlite3.exe" and "sqlite3_analyzer.exe" and open "sqldiff.exe".</p>
 </li>
 <li>
-<p>Open command line tool of your choice, e.g. "Windows PowerShell". Don't panic if this is the first time you're using it. It should be installed on your computer by default. Just follow the instructions and you'll be fine. In the following points, we'll use terms <code>shell</code>, <code>command line</code>, <code>terminal</code>, <code>console</code> as synonyms for whatever command line tool that you're using.</p>
+<p>You will now see a terminal where you are able to run different SQLite commands. To create a database, we need to use following command <code>.open your_path</code>, where <code>your_path</code> stands for the path of your new database. You can replace it with <code>./learning_sql.db</code> that will create a new database inside your current directory. The full command would be <code>.open ./learning_sql.db</code></p>
 </li>
-</ol>
-<p><code>TODO: maybe hint: you can see names like ..., ..., - these are just different ways of calling ...</code></p>
-<ol>
 <li>
-<p>Inside your command line tool, you'd like to see the folder where you've just moved SQLite files. Use the following command and after replacing <code>your_path</code> with the actual path to your folder hit <code>enter</code>: <code>cd your_path</code>.
+<p>Remember that SQLite database is just a file? You can double check if it worked by going to the folder and checking if you can see a new file <code>./learning_sql.db</code>.
 </p>
 <div class="flash flash-success">
     <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>If you don’t know how to get the path to you folder, you can use a little trick. Right-click on the icon of this folder, go to <code>Properties</code>, select <code>Security</code> tab and copy the full content of <code>Object name:</code>. 
-</div>
-You can double check if it worked by using <code>ls</code> command inside your shell. After running it (just hit <code>enter</code>), you should see your three files.
-</li>
-<li>
-<p>Being inside this folder, you can create your first database. Just type in <code>.\sqlite3.exe test.db</code> and hit <code>enter</code> once again. The command should create a database called <code>test.db</code> inside your current folder. Remember that SQLite database is just a file? You can double check if your database was created using <code>ls</code> command or just going to this folder like standard Windows file browser.<br>
-</p>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>If you don’t see the file with your database, try typing in <code>.databases</code> in your shell and double check once again.
+    <strong>Tip: </strong>If you don’t see the file with your database, try typing <code>.databases</code> insinde the SQLite terminal and double check once again.
 </div>
 </li>
-<li>
-<p>You can now close your terminal, as we'll use a more beginner-friendly way of interacting with the database. Inside your console first hit <code>ctrl</code> + <code>c</code> buttons to close sqlite prompt. Next, close your terminal as any other windows application by clicking <img class="emoji" title=":x:" alt=":x:" src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png" height="20" width="20"> button.</p>
-</li>
-<li>
-<p>Congratulations, you have just created an SQLite database! You can check the next, optional point or move on to the next section.</p>
-</li>
-<li>
-<p>(OPTIONAL) If you work with SQLite prompt frequently, it might be inconvenient for you to go inside specific folder each time you want to run it. You can avoid it using "environment variables" in Windows 10.</p>
-</li>
+<li>You can now close your terminal. You've just successfully created an SQLite database! You will see how to interact with your database in a beginner-friendly way in the next section.</li>
 </ol>
 
 </div>
