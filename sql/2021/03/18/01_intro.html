@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      12 min read
     
 </span></p>
 
@@ -107,10 +107,10 @@ window.onload = wrap_img;
 <a href="#Building-your-first-end-to-end-project">Building your first end-to-end project </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#Download-the-data">Download the data </a></li>
-<li class="toc-entry toc-h3"><a href="#Choose-the-database">Choose the database </a></li>
 <li class="toc-entry toc-h3">
 <a href="#Install-the-database">Install the database </a>
 <ul>
+<li class="toc-entry toc-h4"><a href="#Choose-the-database">Choose the database </a></li>
 <li class="toc-entry toc-h4"><a href="#SQLite-introduction">SQLite introduction </a></li>
 <li class="toc-entry toc-h4"><a href="#SQLite-installation">SQLite installation </a></li>
 </ul>
@@ -197,7 +197,7 @@ window.onload = wrap_img;
 <code>TODO: you might be wondering if there is a better way to download this file, clone repo? curl?</code>
 </li>
 </ul>
-<p>Congratulations, you've just completed the first step to get your data project up and running!</p>
+<p>Congratulations, you've just completed the first step to get your data project up and running! As you may notice, it's a very simple dataset with just one table of data. We'll switch to more complex datasets later in the book.</p>
 
 </div>
 </div>
@@ -205,9 +205,18 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Choose-the-database">
-<a class="anchor" href="#Choose-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Choose the database<a class="anchor-link" href="#Choose-the-database"> </a>
+<h3 id="Install-the-database">
+<a class="anchor" href="#Install-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the database<a class="anchor-link" href="#Install-the-database"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Choose-the-database">
+<a class="anchor" href="#Choose-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Choose the database<a class="anchor-link" href="#Choose-the-database"> </a>
+</h4>
 </div>
 </div>
 </div>
@@ -240,15 +249,6 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Install-the-database">
-<a class="anchor" href="#Install-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the database<a class="anchor-link" href="#Install-the-database"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="SQLite-introduction">
 <a class="anchor" href="#SQLite-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQLite introduction<a class="anchor-link" href="#SQLite-introduction"> </a>
 </h4>
@@ -261,7 +261,7 @@ window.onload = wrap_img;
 <p>In this section you'll see how to install the SQLite database. One of the reasons that SQLite is particurarly good starting point for learning is its simplicity. The entire database is contained in just one file. Setting it up is trivial. It requires hardly any installation and no configuration at all. It's free, so you can use it to its limits without worring about the costs.</p>
 <p>Beware and don't let the simplicity disguise you. It is a fully reliable database with most of the features that you would expect from the modern SQL database. It's characteristics make it a perfect choice for:</p>
 <ul>
-<li>smartphonoes and other devices,</li>
+<li>smartphones and other devices,</li>
 <li>websites,</li>
 <li>data analytics,</li>
 <li>and many more.</li>
@@ -300,26 +300,31 @@ window.onload = wrap_img;
 <p>You'll now see how to set up your own SQLite database. As mentioned before, this instruction shows how to do it in Windows 10. Let's get started <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"></p>
 <ol>
 <li>
-<p>First you need to visit the SQLite <a href="https://www.sqlite.org/download.html">Download Page</a>. You'll see a list with different sections. Go to "Precompiled Binaries for Windows" and find the link for "bundle of command-line tools". Click on the link to download the zip file.</p>
+<p>First you need to visit the SQLite <a href="https://www.sqlite.org/download.html">Download Page</a>. You'll see a list with different sections. Go to "Precompiled Binaries for Windows" and find the link for "bundle of command-line tools". Click on the link to download the .zip file.</p>
 </li>
 <li>
-<p>Right click the zip file and uncompress it. SQLite is portable, you don't need to install it. Actually, you can start using it right now.</p>
+<p>Right click the .zip file and uncompress it. SQLite is portable, you don't need to install it. Actually, you can start using it right now.</p>
 </li>
 <li>
 <p>Go to catalog with three files: "sqldiff.exe", "sqlite3.exe" and "sqlite3_analyzer.exe" and open "sqldiff.exe".</p>
 </li>
 <li>
-<p>You will now see a terminal where you are able to run different SQLite commands. To create a database, we need to use following command <code>.open your_path</code>, where <code>your_path</code> stands for the path of your new database. You can replace it with <code>./learning_sql.db</code> that will create a new database inside your current directory. The full command would be <code>.open ./learning_sql.db</code></p>
+<p>You will now see a terminal where you are able to run different SQLite commands. To create a database, we need to use following command <code>.open your_path</code>, where <code>your_path</code> stands for the path of your new database. You can replace it with <code>./covid.db</code> that will create a new database inside your current directory. The full command would be <code>.open ./codiv.db</code>. If you wan't to provide a full path, you need to use "/" instead of "\" to specify it.</p>
 </li>
 <li>
-<p>Remember that SQLite database is just a file? You can double check if it worked by going to the folder and checking if you can see a new file <code>./learning_sql.db</code>.
+<p>Remember that SQLite database is just a file? You can double check if it worked by going to the folder and checking if you can see a new file <code>./covid.db</code>.
 </p>
 <div class="flash flash-success">
     <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If you don’t see the file with your database, try typing <code>.databases</code> insinde the SQLite terminal and double check once again.
 </div>
 </li>
-<li>You can now close your terminal. You've just successfully created an SQLite database! You will see how to interact with your database in a beginner-friendly way in the next section.</li>
+<li>You can now close your terminal. You've just successfully created an SQLite database! You will see how to interact with your database in a beginner-friendly way in the next section.
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>If for some reason you struggle to create a new database using the standard approach, move forward to the next section. You will see an alternative way of achieving the same results.
+</div>
+</li>
 </ol>
 
 </div>
@@ -337,7 +342,31 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>TODO: now that we can interact with ..., let's discuss what are the main benefits and ...</code></p>
+<p>Once you have your database created, you can start using it. There are plenty of tools that provide a user interface just for that. One of them, that is free, very easy to start with and intuitive to use is SQLiteStudio. It is designed specifically for SQLite databases. Let's try to install it.</p>
+<ol>
+<li>Visit official <a href="https://sqlitestudio.pl/">SQLiteStudio website</a> and click "Download" button. After a while, you will see a new .zip file downloaded to your computer.</li>
+<li>Uncompress the file an open the new folder that appeared on your computer. You should find an "SQLiteStudio" directory inside that folder.</li>
+<li>This step is optional but recommended. Move the "SQLiteStudio" folder to the place, where you would like to store it permamently (e.g. your C:\ drive). You can create a shortcut to "SQLiteStudio.exe" file for easy access e.g. from your Desktop.</li>
+<li>
+<p>Inside "SQLiteStudio" directory, you will find an "SQLiteStudio.exe" file. You can already click it to open the tool.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>It is possible that you will be shown a Windows warning about opening non-trusted application. "SQLiteStudio" is an open source project and all of its code is available for the public. As you can find out in an official <a href="https://github.com/pawelsalawa/sqlitestudio">GitHub repo</a>, it’s maintained for a couple of years and many people are using it. You can safely ignore the warning.
+</div>
+That's it! No further installation required. I told you that it's easy! Let's now connect SQLiteStudio to the database created in the previous step.
+</li>
+<li>
+<p>First, click on the "Database" menu and then select "Add a database" option.</p>
+</li>
+<li>Let's keep "SQLite 3" as a database type. In the "File" section enter the path to your database file (<code>covid.db</code>) or click on the folder icon to select it from your computer.
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>As you can see, SQLiteStudio provides you with an even simpler way of creating new database file. All you need to do is to click a green icon "Create new database file".
+</div>3. SQLiteStudio will set a name for your database by default but you can change it. You can also decide wheter you want to see your database each time you open the app by checking the "Permanent" option.</li>
+<li>You can now "Test connection" and hit "OK" if everything works fine.</li>
+</ol>
+<p>Great, your database is now connected to the tool that you'll be using. If you try to see what's inside, you'll find out that the database is empty, which makes a lot of sense. You've just created it from scratch. In the next section you will see how to feed the "COVID-19 vaccinations" dataset into your database. Along the way, you'll also discover different features of SQLite and SQLiteStudio.</p>
 
 </div>
 </div>
