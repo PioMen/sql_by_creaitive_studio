@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      14 min read
+      16 min read
     
 </span></p>
 
@@ -136,6 +136,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>TODO: screenshots OR GIFS for instruction</code></p>
 <p><code>TODO: schemas, diagram to make it more pleasant to read</code></p>
+<p><code>TODO: sqlite for python: run code and show results from db (pobierz dataset curlem??)</code></p>
 
 </div>
 </div>
@@ -401,8 +402,8 @@ That's it! No further installation required. I told you that it's easy! Let's no
     <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>You may come across a "tsv" file. It’s a specific name for a delimited file that uses tabs as separators. In most of the tools, you should be able to import it using "import csv" option and selecting tab or "\t" as your delimiter.
 </div>
-Back in our case, to check if the first line of our file contains header, you can open it using any text editor. Notepad is the simplest option. Right click on your file, choose "Open with..." and select Notepad from the list. When you have your file opened, you can check the first line of the text. We can see values like: "country", "iso_code", "date", "total_vaccinations" which definitely look like a column names. Make sure to check "first line represents CSV column names" option in SQLiteStudio.
-<p>Last but not least, field separator. Looking at couple of the first rows, you can clearly see that values are separated with commas, e.g.: "country<strong>,</strong>iso_code<strong>,</strong>date<strong>,</strong>total_vaccinations...", "Albania<strong>,</strong>ALB<strong>,</strong>2021-01-10<strong>,</strong>0.0**...". Make sure to select ", (comma)" as a field separator.</p>
+Back in our case, to check if the first line of our file contains header, you can open it using any text editor. Notepad is the simplest option. Right click on your file, choose "Open with..." and select Notepad from the list. When you have your file opened, you can check the first line of the text. You will see values like: "country", "iso_code", "date", "total_vaccinations" which definitely look like a column names. Make sure to check "first line represents CSV column names" option in SQLiteStudio.
+<p>Last but not least, field separator. Looking at couple of the first rows, you can clearly see that values are separated with commas, e.g.: "country<strong>,</strong>iso_code<strong>,</strong>date<strong>,</strong>total_vaccinations...", "Albania<strong>,</strong>ALB<strong>,</strong>2021-01-10<strong>,</strong>0.0...". Make sure to select ", (comma)" as a field separator.</p>
 <p>You're now ready to import your data. Click a "Finish" button to start the process. After a short moment, you will see a new table in your database.</p>
 
 </div>
@@ -424,13 +425,47 @@ Back in our case, to check if the first line of our file contains header, you ca
 <p>One of the reasons that I'm such a huge fan of the SQL is its friendliness. SQL is a declarative language. It means that you don't need to specify all the low-lewel operations to get the desired result. You just need to describe the final outcome and the database will figure out the rest for you.</p>
 <p><code>TODO: diagram to illustrate the point above</code></p>
 <p>If you have some basic knowledge of English, you may be suprised that a simple SQL query can be nearly understandable to you.</p>
-<p><code>TODO: simple SQL</code></p>
-<p>It almost feels like a pseudocode. The cool thing is that it's an actual working query.</p>
-<p><code>TODO: explain the meaning of select, from etc.</code></p>
-<p>Let's see what happens when you run this code.</p>
-<p><code>TODO: run code and show results from db</code>
-You can now try to execute this query inside the database managament app of your choice.</p>
-<p><code>TODO: nulls import (use a query with nulls that won't work)</code></p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
+    <span class="n">country</span><span class="p">,</span>
+    <span class="nb">date</span><span class="p">,</span>
+    <span class="n">daily_vaccinations</span>
+<span class="k">FROM</span>
+    <span class="n">covid</span><span class="p">.</span><span class="n">country_vaccinations</span>
+<span class="k">WHERE</span>
+    <span class="n">COUNTRY</span> <span class="o">=</span> <span class="s1">'United States'</span>
+<span class="k">ORDER</span> <span class="k">BY</span>
+    <span class="nb">DATE</span> <span class="k">DESC</span><span class="p">;</span>
+</pre></div>
+<p>It almost feels like a pseudocode. The cool thing is that it's an actual working query. You start with choosing or <em>selecting</em> columns that you want to use. Next, you specify which database and which table you want to get your data <em>from</em>. You only request rows <em>where</em> certain condition is met. Finally you put your results into specific <em>order</em>. You probably wouldn't be able to write it yourself but it makes an intuitive sence. We'll spend much more time learning how to build your own sql queries later in the book.</p>
+<p>You can try to execute this query inside the SQLiteStudio. Click on <em>Tools</em> in the top menu and select "Open SQL editor". You will see a new window where you can type some text. Copy or <em>even better</em> rewrite the SQL code inside this editor.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>Although copying and rewriting the code will provide you with the same result, typing the code yourself can be an effective learning technique.
+</div>
+To execute the query and see results you can either click on the "play button" or hit "F9" on your keyboard. Outcome will be displayed in a table below the editor. As expected, you should see information about daily vaccinations in USA sorted descending by date.
+<p><code>TODO: explanation: tabs, capital letters; semicolon</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>tests:
+</p>
+<div class="flash flash-warn">
+    <svg class="octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
+    <strong>Important: </strong>Pay attention! It’s important. will render this:
+</div>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>This is my tip. will render this:
+</div>
+<div class="flash">
+    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>Take note of this. will render this:
+</div>
 
 </div>
 </div>
@@ -441,6 +476,15 @@ You can now try to execute this query inside the database managament app of your
 <h3 id="Visualize-your-insights">
 <a class="anchor" href="#Visualize-your-insights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualize your insights<a class="anchor-link" href="#Visualize-your-insights"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can export or even better...</p>
+<p><code>TODO: explanation: tabs, capital letters; semicolon</code></p>
+
 </div>
 </div>
 </div>
