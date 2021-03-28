@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      14 min read
     
 </span></p>
 
@@ -366,7 +366,7 @@ That's it! No further installation required. I told you that it's easy! Let's no
 </div>3. SQLiteStudio will set a name for your database by default but you can change it. You can also decide wheter you want to see your database each time you open the app by checking the "Permanent" option.</li>
 <li>You can now "Test connection" and hit "OK" if everything works fine.</li>
 </ol>
-<p>Great, your database is now connected to the tool that you'll be using. If you try to see what's inside, you'll find out that the database is empty, which makes a lot of sense. You've just created it from scratch. In the next section you will see how to feed the "COVID-19 vaccinations" dataset into your database. Along the way, you'll also discover different features of SQLite and SQLiteStudio.</p>
+<p>Great! Your database is now connected to the tool that you'll be using. If you try to see what's inside, you'll find out that the database is empty, which makes a lot of sense. You've just created it from scratch. In the next section you will see how to feed the "COVID-19 vaccinations" dataset into your database. Along the way, you'll also discover different features of SQLite and SQLiteStudio.</p>
 
 </div>
 </div>
@@ -377,6 +377,34 @@ That's it! No further installation required. I told you that it's easy! Let's no
 <h3 id="Import-the-data">
 <a class="anchor" href="#Import-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Import the data<a class="anchor-link" href="#Import-the-data"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To import the dataset right click on the database name in the "Databases" pane or click on the "Tools" menu and select an "Import" option. You will be asked to provide database and table names that will store your data. We only have one database at this point. For the name you can choose whatever you want. We'll be using "country_vaccinations" name in the following sections of this book.</p>
+<p>After hitting "next" you will be asked to specify a couple of options:</p>
+<ul>
+<li>data source type - the format of input file that you're using, CSV in our case;</li>
+<li>input file - path to the file with your data;</li>
+<li>text encoding - we'll just use default system encoding;</li>
+<li>ignore errors - whether you want to stop the import in case of any errors, make sure to leave it unchecked;</li>
+<li>first line represents CSV column names - whether the first row in your file represents column names;</li>
+<li>field separator - character that is used to separate column in your file;</li>
+<li>null values - we'll explore this option later in the book.</li>
+</ul>
+<p>To make a proper selection for some options, you need to know how your csv file is built. You can do it quite easily. Under the hood a csv file is just a text document representing a table of data. Each new line represents a new row and columns are separated with some character. Comma is the most popular choice, hence the name "comma-separated values". You can also stumble upon other separators, like semicolon (";") or tab ("\t").</p>
+<p>Technically the csv name and file extension are not a perfect fit if you don't use commas as your separators. However, you'll often see that people use this format anyway even when the separator is different. As it's still a text file, it will work just fine.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>You may come across a "tsv" file. It’s a specific name for a delimited file that uses tabs as separators. In most of the tools, you should be able to import it using "import csv" option and selecting tab or "\t" as your delimiter.
+</div>
+Back in our case, to check if the first line of our file contains header, you can open it using any text editor. Notepad is the simplest option. Right click on your file, choose "Open with..." and select Notepad from the list. When you have your file opened, you can check the first line of the text. We can see values like: "country", "iso_code", "date", "total_vaccinations" which definitely look like a column names. Make sure to check "first line represents CSV column names" option in SQLiteStudio.
+<p>Last but not least, field separator. Looking at couple of the first rows, you can clearly see that values are separated with commas, e.g.: "country<strong>,</strong>iso_code<strong>,</strong>date<strong>,</strong>total_vaccinations...", "Albania<strong>,</strong>ALB<strong>,</strong>2021-01-10<strong>,</strong>0.0**...". Make sure to select ", (comma)" as a field separator.</p>
+<p>You're now ready to import your data. Click a "Finish" button to start the process. After a short moment, you will see a new table in your database.</p>
+
 </div>
 </div>
 </div>
@@ -402,6 +430,7 @@ That's it! No further installation required. I told you that it's easy! Let's no
 <p>Let's see what happens when you run this code.</p>
 <p><code>TODO: run code and show results from db</code>
 You can now try to execute this query inside the database managament app of your choice.</p>
+<p><code>TODO: nulls import (use a query with nulls that won't work)</code></p>
 
 </div>
 </div>
