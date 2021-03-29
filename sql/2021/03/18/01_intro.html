@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      18 min read
     
 </span></p>
 
@@ -117,6 +117,13 @@ window.onload = wrap_img;
 </li>
 <li class="toc-entry toc-h3"><a href="#Interact-with-your-database">Interact with your database </a></li>
 <li class="toc-entry toc-h3"><a href="#Import-the-data">Import the data </a></li>
+<li class="toc-entry toc-h3">
+<a href="#Run-your-first-SQL-query">Run your first SQL query </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Running-the-query">Running the query </a></li>
+<li class="toc-entry toc-h4"><a href="#Formatting-the-query">Formatting the query </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#Run-your-first-SQL-query">Run your first SQL query </a></li>
 <li class="toc-entry toc-h3"><a href="#Visualize-your-insights">Visualize your insights </a></li>
 </ul>
@@ -137,6 +144,7 @@ window.onload = wrap_img;
 <p><code>TODO: screenshots OR GIFS for instruction</code></p>
 <p><code>TODO: schemas, diagram to make it more pleasant to read</code></p>
 <p><code>TODO: sqlite for python: run code and show results from db (pobierz dataset curlem??)</code></p>
+<p><code>TODO: split Important / Tip / Note</code></p>
 
 </div>
 </div>
@@ -421,6 +429,15 @@ Back in our case, to check if the first line of our file contains header, you ca
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Running-the-query">
+<a class="anchor" href="#Running-the-query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the query<a class="anchor-link" href="#Running-the-query"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Now we'll go through the <em>SQL query</em> that was used to prepare the data for our report. A <em>query</em> is a piece of SQL code that you use to get the data from the database. You can also use it to do all kinds of manipulations, like: aggregations, custom calculations, filtering, sorting and so on.</p>
 <p>One of the reasons that I'm such a huge fan of the SQL is its friendliness. SQL is a declarative language. It means that you don't need to specify all the low-lewel operations to get the desired result. You just need to describe the final outcome and the database will figure out the rest for you.</p>
 <p><code>TODO: diagram to illustrate the point above</code></p>
@@ -434,7 +451,7 @@ Back in our case, to check if the first line of our file contains header, you ca
 <span class="k">WHERE</span>
     <span class="n">COUNTRY</span> <span class="o">=</span> <span class="s1">'United States'</span>
 <span class="k">ORDER</span> <span class="k">BY</span>
-    <span class="nb">DATE</span> <span class="k">DESC</span><span class="p">;</span>
+    <span class="nb">date</span> <span class="k">DESC</span><span class="p">;</span>
 </pre></div>
 <p>It almost feels like a pseudocode. The cool thing is that it's an actual working query. You start with choosing or <em>selecting</em> columns that you want to use. Next, you specify which database and which table you want to get your data <em>from</em>. You only request rows <em>where</em> certain condition is met. Finally you put your results into specific <em>order</em>. You probably wouldn't be able to write it yourself but it makes an intuitive sence. We'll spend much more time learning how to build your own sql queries later in the book.</p>
 <p>You can try to execute this query inside the SQLiteStudio. Click on <em>Tools</em> in the top menu and select "Open SQL editor". You will see a new window where you can type some text. Copy or <em>even better</em> rewrite the SQL code inside this editor.
@@ -444,7 +461,6 @@ Back in our case, to check if the first line of our file contains header, you ca
     <strong>Tip: </strong>Although copying and rewriting the code will provide you with the same result, typing the code yourself can be an effective learning technique.
 </div>
 To execute the query and see results you can either click on the "play button" or hit "F9" on your keyboard. Outcome will be displayed in a table below the editor. As expected, you should see information about daily vaccinations in USA sorted descending by date.
-<p><code>TODO: explanation: tabs, capital letters; semicolon</code></p>
 
 </div>
 </div>
@@ -452,21 +468,46 @@ To execute the query and see results you can either click on the "play button" o
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>tests:
-</p>
-<div class="flash flash-warn">
-    <svg class="octicon octicon-zap" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 00-.01.004L3.286 8.571A.25.25 0 003.462 9H6.75a.75.75 0 01.694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0012.538 7H9.25a.75.75 0 01-.683-1.06l2.008-4.418.003-.006a.02.02 0 00-.004-.009.02.02 0 00-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 012.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 01-.871.354h-.302a1.25 1.25 0 01-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"></path></svg>
-    <strong>Important: </strong>Pay attention! It’s important. will render this:
+<h4 id="Formatting-the-query">
+<a class="anchor" href="#Formatting-the-query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formatting the query<a class="anchor-link" href="#Formatting-the-query"> </a>
+</h4>
 </div>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>This is my tip. will render this:
 </div>
-<div class="flash">
-    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>Take note of this. will render this:
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If this is the first time you use SQL code, you'll probably start to have questions.</p>
+<ul>
+<li>Does capitalization matter?</li>
+<li>Do I need to keep split the code into lines in the same way?</li>
+<li>Will it work if I don't indent?</li>
+<li>Is semicolon at the end required?</li>
+</ul>
+<p>Before I give you answers, let me emphasize how cool it is to write code. In real or "physical" life, if you try some approach that doesn't work, most often than not, you break something. Usually it's painful because you need to either fix or replace whatever is broken. Writing code is a completely different world. Very often the worst thing that can happen is seeing an error. It's almost like you are in a wonderland where you can push your imagination to the limits withouth caring too much about consequences. Of course if you push to hard, you are capable of causing some damage but I can assure you that it won't happen while writing basic SQL queries. Having say that, I'd strongly recommend you pausing here for a moment an testing yourself what can happen if you violate any of the assumptions from the list above.</p>
+<p><code>TODO: some graphic to avoid spoilers?</code></p>
+<p>Ready to find out the answer? Try using the code below and see what happens.</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="n">country</span><span class="p">,</span> <span class="nb">date</span><span class="p">,</span> <span class="n">daily_vaccinations</span> <span class="k">from</span> <span class="n">covid</span><span class="p">.</span><span class="n">country_vaccinations</span> <span class="k">where</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">'United States'</span> <span class="k">order</span> <span class="k">by</span> <span class="nb">date</span> <span class="k">desc</span><span class="p">;</span>
+</pre></div>
+<p>Good news is that nothing exploded. Even better news is that it works exactly the same as the previous version. If it doesn't matter why bother splitting the code or making indentations? In short, all those things do not matter for the <em>computer</em>. The thing is that we're not computers. It's much more easy and predictable to read, modify and work with the query if it's nicely formatted. Especially if it's a long and a complex one. You can already notice the difference in the simple example above. Imagine having not ten but a hundred lines of code that you need to update.</p>
+<p>Your future self will probably not thank you if you take a good care about formatting. But you can be sure that it will curse if you don't. That's why this book follows a couple of simple principles when formatting code.</p>
+<ol>
+<li>Create a new line for each main keyword (<em>SELECT, FROM, WHERE, ORDER BY</em>), column, where condition, expression.</li>
+<li>Indent everything between main keywords.</li>
+<li>Use semicolon to split many queries written one after the other (it makes your editor aware that these are separate pieces of code).</li>
+<li>Capitalize keywords (that's my latest principle that I'm least strict about).</li>
+</ol>
+<p>This is a set of principles that I've worked out using SQL for years. They tend to work very well for me. It's not fully comprehensive list and definitely not written in stone. As fair as I know, there is no one standard that everyone should follow. Feel free to experiment and modify the assumptions above to craft your own formatting style. As long as you keep your future self and your colleagues in mind, you should be fine.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Run-your-first-SQL-query">
+<a class="anchor" href="#Run-your-first-SQL-query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run your first SQL query<a class="anchor-link" href="#Run-your-first-SQL-query"> </a>
+</h3>
 </div>
 </div>
 </div>
