@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      22 min read
     
 </span></p>
 
@@ -124,8 +124,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#Formatting-the-query">Formatting the query </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#Run-your-first-SQL-query">Run your first SQL query </a></li>
-<li class="toc-entry toc-h3"><a href="#Visualize-your-insights">Visualize your insights </a></li>
+<li class="toc-entry toc-h3"><a href="#Share-your-work">Share your work </a></li>
+<li class="toc-entry toc-h3"><a href="#Install-a-BI-tool">Install a BI tool </a></li>
+<li class="toc-entry toc-h3"><a href="#Connect-BI-tool-to-the-database">Connect BI tool to the database </a></li>
 </ul>
 </li>
 </ul>
@@ -438,7 +439,7 @@ Back in our case, to check if the first line of our file contains header, you ca
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we'll go through the <em>SQL query</em> that was used to prepare the data for our report. A <em>query</em> is a piece of SQL code that you use to get the data from the database. You can also use it to do all kinds of manipulations, like: aggregations, custom calculations, filtering, sorting and so on.</p>
+<p>Now we'll go through the sample <em>SQL query</em> that is very similar to the one used in our report. A <em>query</em> is a piece of SQL code that you use to get the data from the database. You can also use it to do all kinds of manipulations, like: aggregations, custom calculations, filtering, sorting and so on.</p>
 <p>One of the reasons that I'm such a huge fan of the SQL is its friendliness. SQL is a declarative language. It means that you don't need to specify all the low-lewel operations to get the desired result. You just need to describe the final outcome and the database will figure out the rest for you.</p>
 <p><code>TODO: diagram to illustrate the point above</code></p>
 <p>If you have some basic knowledge of English, you may be suprised that a simple SQL query can be nearly understandable to you.</p>
@@ -505,8 +506,8 @@ To execute the query and see results you can either click on the "play button" o
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Run-your-first-SQL-query">
-<a class="anchor" href="#Run-your-first-SQL-query" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run your first SQL query<a class="anchor-link" href="#Run-your-first-SQL-query"> </a>
+<h3 id="Share-your-work">
+<a class="anchor" href="#Share-your-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>Share your work<a class="anchor-link" href="#Share-your-work"> </a>
 </h3>
 </div>
 </div>
@@ -514,8 +515,16 @@ To execute the query and see results you can either click on the "play button" o
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Visualize-your-insights">
-<a class="anchor" href="#Visualize-your-insights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualize your insights<a class="anchor-link" href="#Visualize-your-insights"> </a>
+<p>When you have your data prepared, it's time to share it with your audience. You can do it in many different ways. One of the most effective ones is creating an interactive dashboard. In the next section you'll see how to set up a bi tool on your machine to start working on the first vizualizations. This section is not strictly related with the SQL language itself so you might be tempted to skip it over. Having in mind that presenting the data is one of the most important parts of the data project, I'd recommend at least taking a quick look. This way you'll build a high-level understanding of the process.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-a-BI-tool">
+<a class="anchor" href="#Install-a-BI-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install a BI tool<a class="anchor-link" href="#Install-a-BI-tool"> </a>
 </h3>
 </div>
 </div>
@@ -523,8 +532,62 @@ To execute the query and see results you can either click on the "play button" o
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can export or even better...</p>
-<p><code>TODO: explanation: tabs, capital letters; semicolon</code></p>
+<p>There are plenty of great BI tools on the market. The differ in features, pricing models and ease of use. We won't compare them here as this river is vastly too deep to go into. Instead, we'll use one tool, PowerBi in our case. It's very robust, popular and fast developing. In short, it's a tool that's worth knowing in general. Plus it's free to install on your computer, although buying a commercial license is required to share your work with others.</p>
+<p>You can install PowerBi from the official <a href="https://www.microsoft.com/en-us/download/details.aspx?id=58494">Microsoft website</a>. Click the "Download" button and follow the instruction.</p>
+<p>After succesfull installation, you should be able to open PowerBI Desktop. You'll see some prompts that will help you to log in or buy a licencse if you need one. You can ignore them at the moment to go to the main interface of the tool.</p>
+<p><code>TODO: screenshot: prompt</code>
+<code>TODO: screenshot: you should see similar interface</code></p>
+<p>If you select "Get data" from the "Home" menu, you'll see that PowerBI works with many different data sources out of the box, without further configuration required.</p>
+<p><code>TODO: screenshot</code></p>
+<p>Unfortunately, SQLite is an exception in this case. To make the two applications talk to each other, you need to install additional driver that you can find <a href="http://www.ch-werner.de/sqliteodbc/">here</a>. Depending on whether you'are on 32 or 64-bit version of windows, choose either "sqliteodbc.exe" or "sqliteodbc_w64.exe". After successfull installation, you'll be able to connect your PowerBI Desktop app to the SQLite database prepared in the previous step.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Connect-BI-tool-to-the-database">
+<a class="anchor" href="#Connect-BI-tool-to-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connect BI tool to the database<a class="anchor-link" href="#Connect-BI-tool-to-the-database"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To make the connection, go to the "Home" menu and click on the "Get data" icon. Choose "more..." to open a new window where you'll be able to find "ODBC" option. After selecting this option, click on the "Connect" button. Select "SQLite3 Datasource" and expand "Advanced options". Next, you need to define "Connection string ..." field, which has <code>database=absolute_path_to_your_db</code> format. The parameter <code>absolute_path_to_your_db</code> is just a path to the database file created in one of the previous steps.</p>
+<p><code>TODO: consider how variables should be shown in text</code>
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>If you’re not sure about your absolute path, you can right-click on the database file created in on of the previous steps. Next, choose "Properties" and "Security" that will lead you to the full path of the file (text field at the very top). You can copy it and use in your connection string.
+</div>
+In the SQL statement box, you can use a custom sql to extract the data. If you don't specify it, you'll be able to use the entire table. That's good for our small, example dataset. Probably not very good for big, productional data sources. Let's use the query from the previous sections. Because we are connecting specifically to the <code>covid</code> db, we need to remove <code>covid.</code> prefix in the <code>from</code> clause.
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
+    <span class="n">country</span><span class="p">,</span>
+    <span class="nb">date</span><span class="p">,</span>
+    <span class="n">daily_vaccinations</span>
+<span class="k">FROM</span>
+    <span class="n">country_vaccinations</span>
+<span class="k">WHERE</span>
+    <span class="n">COUNTRY</span> <span class="o">=</span> <span class="s1">'United States'</span>
+<span class="k">ORDER</span> <span class="k">BY</span>
+    <span class="nb">date</span> <span class="k">DESC</span><span class="p">;</span>
+</pre></div>
+<p>To complete the process, paste the above query and hit "Ok". When asked about password, switch to the "Default or Custom" option in the menu, leave all the field blank and continue.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>TODO:
+- SQLite connector
+- SQL from previous point to create a time series (not USA, not ordered)
+- one more SQL to create a map</code></pre>
 
 </div>
 </div>
