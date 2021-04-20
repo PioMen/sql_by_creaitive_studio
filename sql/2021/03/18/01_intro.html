@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      22 min read
+      24 min read
     
 </span></p>
 
@@ -124,9 +124,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#Formatting-the-query">Formatting the query </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#Share-your-work">Share your work </a></li>
-<li class="toc-entry toc-h3"><a href="#Install-a-BI-tool">Install a BI tool </a></li>
-<li class="toc-entry toc-h3"><a href="#Connect-BI-tool-to-the-database">Connect BI tool to the database </a></li>
+<li class="toc-entry toc-h3">
+<a href="#Share-your-work">Share your work </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Install-a-BI-tool">Install a BI tool </a></li>
+<li class="toc-entry toc-h4"><a href="#Connect-BI-tool-to-the-database">Connect BI tool to the database </a></li>
+<li class="toc-entry toc-h4"><a href="#Prepare-your-first-dashboard">Prepare your first dashboard </a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -523,9 +528,9 @@ To execute the query and see results you can either click on the "play button" o
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Install-a-BI-tool">
+<h4 id="Install-a-BI-tool">
 <a class="anchor" href="#Install-a-BI-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install a BI tool<a class="anchor-link" href="#Install-a-BI-tool"> </a>
-</h3>
+</h4>
 </div>
 </div>
 </div>
@@ -547,23 +552,19 @@ To execute the query and see results you can either click on the "play button" o
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Connect-BI-tool-to-the-database">
+<h4 id="Connect-BI-tool-to-the-database">
 <a class="anchor" href="#Connect-BI-tool-to-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connect BI tool to the database<a class="anchor-link" href="#Connect-BI-tool-to-the-database"> </a>
-</h3>
+</h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To make the connection, go to the "Home" menu and click on the "Get data" icon. Choose "more..." to open a new window where you'll be able to find "ODBC" option. After selecting this option, click on the "Connect" button. Select "SQLite3 Datasource" and expand "Advanced options". Next, you need to define "Connection string ..." field, which has <code>database=absolute_path_to_your_db</code> format. The parameter <code>absolute_path_to_your_db</code> is just a path to the database file created in one of the previous steps.</p>
-<p><code>TODO: consider how variables should be shown in text</code>
-</p>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>If you’re not sure about your absolute path, you can right-click on the database file created in on of the previous steps. Next, choose "Properties" and "Security" that will lead you to the full path of the file (text field at the very top). You can copy it and use in your connection string.
-</div>
-In the SQL statement box, you can use a custom sql to extract the data. If you don't specify it, you'll be able to use the entire table. That's good for our small, example dataset. Probably not very good for big, productional data sources. Let's use the query from the previous sections. Because we are connecting specifically to the <code>covid</code> db, we need to remove <code>covid.</code> prefix in the <code>from</code> clause.
+<p>There's one last step that will make your life much easier you take care about it right know. You can define a DSN (data source name) that you'll be able to reuse in the future. This way you'll avoid providing a configuration each time you want to connect to your database.</p>
+<p>To achieve that, open windows start menu and search for "ODBC Data Sources" (32- or 64-bit depending on your system). Open it and click on the "Add" button. After successful installation in the previous step, you should be able to see "SQLite3 ODBC Driver" option. Select it and click "Finish". You'll see a window where you need to provide two kinds of information: Data Source Name and Database Name. Data Source Name is just a name that you can define for your data source. You can choose whatever you want, I'd suggest using "covid" if you want to be aligned with the book. In Database Name you need to provide a path to your database. You can find the file using "Browse..." button or provide it on your own. Confirm your choices by clicking "Ok" button and you're good to go.</p>
+<p>Open your PowerBI Desktop app. To make the connection, go to the "Home" menu and click on the "Get data" icon. Choose "more..." to open a new window where you'll be able to find "ODBC" option. After selecting it, click on the "Connect" button. You should be able to see the name of data source that you've just defined. Select it and expand "Advanced options".</p>
+<p>In the SQL statement box, you can use a custom sql to extract the data. If you don't specify it, you'll be able to use the entire table. That's good for our small, example dataset. Probably not very good for big, productional data sources. Let's use the query from the previous sections. Because we are connecting specifically to the <code>covid</code> db, we need to remove <code>covid.</code> prefix in the <code>from</code> clause.</p>
 <div class="highlight"><pre><span></span><span class="k">SELECT</span>
     <span class="n">country</span><span class="p">,</span>
     <span class="nb">date</span><span class="p">,</span>
@@ -575,7 +576,7 @@ In the SQL statement box, you can use a custom sql to extract the data. If you d
 <span class="k">ORDER</span> <span class="k">BY</span>
     <span class="nb">date</span> <span class="k">DESC</span><span class="p">;</span>
 </pre></div>
-<p>To complete the process, paste the above query and hit "Ok". When asked about password, switch to the "Default or Custom" option in the menu, leave all the field blank and continue. If everything went right, you'll see a table wit sample data. Click "Load" to import it to PowerBI. After the whole process you will see your data import in the "Fields" menu.</p>
+<p>To complete the process, paste the above query and hit "Ok". Make sure that you understand how it differs from the version used in SQLiteStudio. When asked about password, switch to the "Default or Custom" option in the menu, leave all the field blank and continue. If everything went right, you'll see a table with sample data. Click "Load" to import it to PowerBI. After the whole process you will see your data import in the "Fields" menu.</p>
 
 </div>
 </div>
@@ -583,11 +584,30 @@ In the SQL statement box, you can use a custom sql to extract the data. If you d
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Prepare-your-first-dashboard">
+<a class="anchor" href="#Prepare-your-first-dashboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prepare your first dashboard<a class="anchor-link" href="#Prepare-your-first-dashboard"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The last step is to start working on your dashboard. PowerBi allows you to create all kinds of visualizations, like: tables, charts, maps or even animations. In this book we won't focus too much on the PowerBI itself. We'll just create a basic chart to complete our mini data project and see the big picture. Feel free to play around with different kinds of visualizations if you want. You can try to re-create a dashboard that I've shown you at the very beginning.</p>
+<p><code>TODO: recommend some resource about PowerBI</code>
+<code>TODO: instruction to re-create my dashboard (video??)</code>
+<code>TODO: one more sql to create a map??</code></p>
+<p>If you have your PowerBI open, you can go to the "Fields" menu, right-click on your query and "Edit query". If you do so, you'll see that all of our columns are of the "string" type. That's not what we want, as we'd like PowerBI to be able to e.g. sum numeric values or understand the dates properly. You can change it directly in PowerBI by clicking on the data type icon and choosing a proper option.
+<code>TODO: it's a good moment to start talking about data types</code></p>
+<p>The last step is to create a chart itself. In our case we'll prepare a very basic table. Select a table icon from the "Visualizations" pane and and check "daily_vaccinations" and "date" fields from your data source. PowerBI will place them on a table for you.</p>
 
-<pre><code>TODO:
-- SQLite connector
-- SQL from previous point to create a time series (not USA, not ordered)
-- one more SQL to create a map</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's it, you've just created you first end-to-end data project <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"> You've set up a database, imported your data, run an sql query and prepared a first visualization. You can be proud of yourself <img class="emoji" title=":cocktail:" alt=":cocktail:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f378.png" height="20" width="20"> In the next sections we'll dive deeper in particular parts of the flow. We'll focus of course on the sql query preparation.</p>
 
 </div>
 </div>
