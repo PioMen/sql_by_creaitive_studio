@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      37 min read
+      38 min read
     
 </span></p>
 
@@ -107,7 +107,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#Can-I-learn-it?-Should-I-learn-it?">Can I learn it? Should I learn it? </a></li>
 <li class="toc-entry toc-h3"><a href="#A-short-advice">A short advice </a></li>
-<li class="toc-entry toc-h3"><a href="#See-SQL-in-action">See SQL in action </a></li>
+<li class="toc-entry toc-h3"><a href="#SQL-in-action---the-hands-on-approach">SQL in action - the hands on approach </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2">
@@ -192,7 +192,7 @@ window.onload = wrap_img;
     <svg class="octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If you prefer to learn the more "traditional" way, "SQL for Mere Mortals" by John Viescas and Michael J. Hernandez (<code>TODO: add link</code>) is an amazing book that I can highly recommend.
 </div>
-<p><code>TODO: be more explicit about benefits of this approach</code></p>
+<code>TODO: be more explicit about benefits of this approach</code>
 <p>To give you an idea about what you may expect in this chapter, let me show you a plan that we will follow. First, I'll give you an example of the analytical project that was built using SQL. Then, you will go behind the curtain to get a step by step guide to recreate it on your own. At every step of the process, I will provide you with enough details to fully understand what you're doing.</p>
 <p>Let's get some first orientation in the subject, without spending too much time on a lengthy introduction. Here's a subjective list of 5 reasons why I think it's hard to not love the SQL.</p>
 <p><strong>1. Easy to learn</strong>
@@ -215,8 +215,7 @@ PS. Don't worry if you actually are into hardcore coding marathons, you should b
 <p><strong>1. Limited by design</strong>
 It's more of a feature that an issue but SQL was designed with a specific purpose in mind: manipulating data in a database. Having this assumption makes it a very friendly, logical and coherent language for this purpose. But it's fair to point out that it also imposes some limitations. If you're looking for a single tool that will manipulate the data, create some charts, save them to pdf and sent via e-mail - SQL is not a go to solution. It's a choice between versatility and accessibility. You can find tools that are more universal but they will surely have a steeper learning curve. SQL provides a great balance between the two.
 <code>TODO: matrix - how complex vs how universal the tool is</code></p>
-<p>That's it! These are the main benefits of learning SQL. I hope that you now have a feeling about how accessible and enabling this skill is. I encourage you to give it a try. You will love it!
-<code>TODO: I don't really like how this section ends</code></p>
+<p>Ok, so these are the main benefits of learning SQL. I hope that you now have a feeling about how accessible and enabling this skill is. I encourage you to give it a try. You will love it!`</p>
 
 </div>
 </div>
@@ -233,7 +232,7 @@ It's more of a feature that an issue but SQL was designed with a specific purpos
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>While learning SQL, you probably want to get as much knowledge as possible from the effort that you invest. There's a simple trick that you can use to boost your chances of success. Would you skip this opportunity?</p>
+<p>While learning SQL, you might want to get as much knowledge as possible from the effort that you invest. There's a simple trick that you can use to boost your chances of success. Would you skip this opportunity?</p>
 <p>There are lots of reasons why you might want to learn a new skill. People are usually more succesfull when they have a very explicit goal in mind. So before you jump in to the book for good, take a minute or two, to think about your motivation. By motivation I mean, a specific outcome that you want to get after completing the material. When you're ready, write it down and keep it in a visible place, so you can take a look from time to time. At the very end, you'll be able to check how well you did pursuing your goal.</p>
 <p>To make this technique work even better, think for a couple of minutes about the specific actions that you can take to achieve your goal. When you're ready, write them down. The more specific you get, the better.</p>
 <p>Next, think about obstacles that may stand on your way and prevent you from taking actions that you've just described. Write down all the ideas that you have. Think about ways to overcome these obstacles and make notes. This way, you'll be prepared when they start to affect you.</p>
@@ -255,8 +254,8 @@ That's it, you're now prepared to start your learning journey effectively <img c
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="See-SQL-in-action">
-<a class="anchor" href="#See-SQL-in-action" aria-hidden="true"><span class="octicon octicon-link"></span></a>See SQL in action<a class="anchor-link" href="#See-SQL-in-action"> </a>
+<h3 id="SQL-in-action---the-hands-on-approach">
+<a class="anchor" href="#SQL-in-action---the-hands-on-approach" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQL in action - the hands on approach<a class="anchor-link" href="#SQL-in-action---the-hands-on-approach"> </a>
 </h3>
 </div>
 </div>
@@ -264,15 +263,17 @@ That's it, you're now prepared to start your learning journey effectively <img c
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>What's the best way to see how does it feel to use SQL? In practice of course! Here's the recipe that we'll follow strating from this section:</p>
-<ul>
-<li>see an example of the typical data product created with SQL,</li>
-<li>understand how it was created and do it yourself <img class="emoji" title=":muscle:" alt=":muscle:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png" height="20" width="20">,</li>
-<li>make it stick by trying to rephrase what you've just learned.</li>
-</ul>
-<p>Let's start by imagining that you're a Data Analyst. One of your key responsibilities is to prepare all kinds of reports. Nowadays such reports are very often created and shared using different BI tools. They allow to build in some interactivity and easily share it with the users. You will now see an example of a very simple report that was created in such tool.
+<p>You should now have a very basic feeling about the benefits of learning SQL and hopefully some meaningful goal in mind. You will now see first-hand, how SQL can be used in practice. We will use this opportunity to clarify some concepts and prepare you for the next section, where you'll be given a chance to build similar project yourself. Buckle up!</p>
+<p>First, try to imagine that you're a Data Analyst at a well known, data-driven company. Your job is to transform the data into insights and help to make a good business decisions. There are plenty of ways to do it. One of them is making this data available at a fingertips of the people in your company. You can achieve that by preparing and sharing all kinds of reports.</p>
+<p>Modern companies use BI tools to address their reporting needs. A BI tool is a program designed specifically for this purpose. It allows to build reports, aka dashboards, that are automated, interactive and easy to share. An effective report prepared in a BI tool allows users to play with the data on their own. Filtering, drill down and other manupilations should be available in real time, without need to use help from a Data Analyst.</p>
+<p>Some of the most popular BI tools, like Tableau, PowerBI or Data Studio, provide access to a gallery. It's a place where you can find a colletion of sample dashboards prepared by the community. I really recommend you visiting them, to get a feeling of what you may expect from a modern BI tool (<a href="https://public.tableau.com/en-us/gallery/?tab=viz-of-the-day&amp;type=viz-of-the-day">Tableau Gallery</a>, <a href="https://community.powerbi.com/t5/Data-Stories-Gallery/bd-p/DataStoriesGallery">PowerBI Data Stories Gallery</a>, <a href="https://datastudio.google.com/gallery">Data Studio Report Gallery</a>).</p>
+<p>Ok, but how do you actually get the data available in a BI tool? That's where SQL typically comes into play. It's very often used to feed your report with data. Let's see it in practice.</p>
+<p>We will try to replicate a simple report.</p>
+<p>In this section we now see an example of a very simple report that was created in such tool. examples
 <code>TODO: screenshot + link</code>
 <code>TODO: elaborate on the dashboard: you can see x, y; users can filter ...</code></p>
+<p>Companies usually store their data in a database. SQL allows to interact with this data and it may be used to feed it into your report.</p>
+<p><code>TODO: schema of process: database -&gt; SQL -&gt; BI</code></p>
 <p>The part which is the most interesting for you is how this report was prepared and what's the role of the SQL in the process. Here's a high-level overview:</p>
 <ul>
 <li>required data is stored in the database,</li>
