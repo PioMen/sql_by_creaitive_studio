@@ -117,16 +117,19 @@ window.onload = wrap_img;
 <a href="#Storing-data-in-a-database">Storing data in a database </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#What-is-a-database?">What is a database? </a></li>
-<li class="toc-entry toc-h4"><a href="#A-look-inside-the-database">A look inside the database </a></li>
+<li class="toc-entry toc-h4">
+<a href="#A-look-inside-a-database">A look inside a database </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#Choose-a-database">Choose a database </a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Manipulating-data-with-SQL">Manipulating data with SQL </a></li>
 <li class="toc-entry toc-h3"><a href="#Importing-data-to-the-BI-tool">Importing data to the BI tool </a></li>
-<li class="toc-entry toc-h3"><a href="#Creating-and-sharing-the-report">Creating and sharing the report </a></li>
 <li class="toc-entry toc-h3">
-<a href="#Install-the-database">Install the database </a>
+<a href="#Creating-and-sharing-the-report">Creating and sharing the report </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#Choose-the-database">Choose the database </a></li>
 <li class="toc-entry toc-h4"><a href="#SQLite-introduction">SQLite introduction </a></li>
 <li class="toc-entry toc-h4"><a href="#SQLite-installation">SQLite installation </a></li>
 </ul>
@@ -328,13 +331,14 @@ That's it, you're now prepared to start your learning journey effectively <img c
 </div>
 The very basic database can be as simple as a shopping list. It can store information about what you want to buy. Slightly more complex examples would be a patient card, a phone book or a home budget. If you think about it, databases are everywhere.</li>
 </ul>
-<p>You've probably noticed that a very basic database, like a shopping list, could be stored on something as simple as a single piece of paper. A phone book would require, well, a book <img class="emoji" title=":sunglasses:" alt=":sunglasses:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png" height="20" width="20"> To make it more convenient, an interactive application would be even better. For a home budget, a spreadsheet could be a wise choice. The general principle is, <em>the more data you have, the more advanced tool you need</em>.</p>
-<p>As you can imagine, data used by companies is far more complex than what an average person typically use. Even a relatively simple business like a single, brick and mortar store, needs to keep and process information about each transaction, the supplies, bank account operations and accounting. And that's just a tip of an iceberg. Companies may want to add to this list information about store visitors (curious? <a href="https://www.amazon.com/s?k=people+counter+wireless&amp;crid=36000BFK9YI2V&amp;sprefix=people+counter%2Caps%2C296&amp;ref=nb_sb_ss_ts-doa-p_8_14">see this</a>), promotions, marketing campaigns, loyalty programs and many more.</p>
+<p>You've probably noticed that a very basic database, like a shopping list, could be stored on something as simple as a single piece of paper. A phone book would require, well, lots of pages <img class="emoji" title=":sunglasses:" alt=":sunglasses:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png" height="20" width="20"> To make it more convenient, an interactive application would be even better. For a home budget, a spreadsheet could be a wise choice. The general principle is, <em>the more data you have, the more advanced tool you need</em>.</p>
+<p>As you can imagine, data used by companies is far more complex than what an average person typically use. Even a relatively simple business like a single, brick and mortar store, needs to keep and process information about each transaction, the supplies, bank account operations, accounting and so on. And that's just a tip of an iceberg. Companies may want to add to this list a bunch of non-required information that helps to build a competitive advantage, like store visitors (curious? <a href="https://www.amazon.com/s?k=people+counter+wireless&amp;crid=36000BFK9YI2V&amp;sprefix=people+counter%2Caps%2C296&amp;ref=nb_sb_ss_ts-doa-p_8_14">see this</a>), promotions, marketing campaigns, loyalty programs and many more.</p>
 <p><code>TODO: update the link</code></p>
 <p>Obviously, a chain of thousands of stores would need to handle this information at scale, for each and every physical locations. That's even without mentioning tech companies with thousands or millions of users that track every mouse movement and every key that you hit on your keyboard. In short, the amount of information used by the companies is overwhelming.</p>
 <p>That's why being able to handle this information requires tools designed specifically with that purpose in mind. A database, in this context, would be a <em>piece of software developed precisely to store and manage data</em>. Modern databases are suitable to manage data at enterprise-level in a reliable, effective and secure way. From now on, whenever you see a word <em>database</em> in this book, that's what it means.</p>
 <p>Database ecosystem is very rich with a variety of solutions. Some of them are being developed by huge corporations and offered commercially (e.g. Oracle Database, Microsoft SQL Server). Others are community-driven and free to use (e.g. PostgreSQL, MySQL, SQLite). You can find solutions that work on-premises (you need to install them on your own computers), and cloud products that run on machines owned by a cloud provider. Finally, there is a group of more traditional, relational database systems and relatively new world of Big Data solutions.</p>
-<p>If you pick two random database products, they can be entirely different in terms of the underlying concepts. As you can image, for a single mind, it would be extremely hard to grasp all the possible variations. Fortunately, despite all the complexity, most of the solutions provide a common interface for interacting with data. And that interface is not that difficult to understand. It's mainly built of tables.</p>
+<p>If you pick two random database products, they can be entirely different in terms of the underlying concepts (e.g. MySQL vs Hive vs SQLite). As you can image, for a single mind, it would be extremely hard to grasp all the possible variations. Fortunately, despite all the complexity, most of the solutions provide a common interface for interacting with data. And that interface is not that difficult to understand. It's mainly built of tables.</p>
+<p><code>TODO: possibly a link to comparison of concepts behind MySQL vs Hive vs SQLite</code></p>
 
 </div>
 </div>
@@ -342,8 +346,8 @@ The very basic database can be as simple as a shopping list. It can store inform
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="A-look-inside-the-database">
-<a class="anchor" href="#A-look-inside-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>A look inside the database<a class="anchor-link" href="#A-look-inside-the-database"> </a>
+<h4 id="A-look-inside-a-database">
+<a class="anchor" href="#A-look-inside-a-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>A look inside a database<a class="anchor-link" href="#A-look-inside-a-database"> </a>
 </h4>
 </div>
 </div>
@@ -351,8 +355,61 @@ The very basic database can be as simple as a shopping list. It can store inform
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the user's perspective, this interface ... a database looks like a collection of tables with data. 
-if university, then ...</p>
+<p>That's right. If you open a database management app, you will most likely see two things:</p>
+<ul>
+<li>a list of tables, often organized in groups (those groups are called either databases or projects, depending on the product that you use),</li>
+<li>an SQL editor, where you can type in your SQL code.</li>
+</ul>
+<p>At this point it's probably quite hard to imagine. Fortunately you can see it with our own eyes. First, we need a database.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Choose-a-database">
+<a class="anchor" href="#Choose-a-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Choose a database<a class="anchor-link" href="#Choose-a-database"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Do you remember a cult movie from 1999 "The Matrix"? There was this very memorable scene where Neo was given a choice between two pills, the red one and the blue one. He had a one in a lifetime opportunity to decide whether he wants to go on living in lie or find out the truth.</p>
+<p>There are two remarkable ascpects of this decision. First, one of the options feels to be objectively more "correct". No one wants his life to be a lie. Secondly, after making this decision, there was no way back, which made it an extremely difficult choice.</p>
+<p>At this point, you also need to make a decision. As already mentioned, there are many different database solutions. This book covers a couple of them (currently two, more to come!). You need to pick one that you'll move on with. Compared to the dilemma that Neo faced, the decision that you are going to make is both easier and more difficult at the same time.</p>
+<p>It's more difficult, because there is no answer which is more "correct" than the others. All solutions discussed in this book are widely used. All of them have advantages and disadvantages and there is no "the right choice". A good side of things is that, unlike Neo, you don't need to live with this decision for the rest of your life. Quite the opposite! You can start with one tool and later on come back to try another one.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>We’re jumping a bit ahead but another aspect that  
+</div>
+many different SQL flavours
+<p>It gets even better than that. There is a standard that describes the principles of the SQL language. It means that even if you learn one implementation of the SQL (e.g. SQLite) and want to switch to another one (e.g. PostgreSQL), you should be able to transfer most of your knowledge. To be clear, it doesn't mean that each vendor implements the language in an identical way. They try to follow the standard to some degree but there are some differences. Those discrepancie however are reasonable enough to make your knowledge universal most of the time. You will see a note whenever we stamble upon a solution that is very specific to given tool.</p>
+<p>if you have a good reason to use x (because you will use it at work, do it), otherwise it dosn't matter that much</p>
+<p>Let's now start working on the database installation. In this book we use SQLite as a default option to show you the process. If you want to see instructions for other databases, visit one of the links:</p>
+<ul>
+<li>Big Query: (todo: <a href="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html">in progress</a>),</li>
+<li>SQLite via Python: (todo: in the backlog),</li>
+<li>PostgreSQL: (todo: in the backlog).
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>As for now, the book shows all the steps needed to install the database on Windows 10. If you’re using other OS, you might want to pick Big Query. Having a browser installed is the only requirement to make it work.
+</div>
+</li>
+</ul>
+<p><code>TODO: matrix/table showing prons/cons of starting with each of the solutions</code>
+<code>TODO: maybe more info in general about different dbs</code></p>
+<p>Let's get started! <img class="emoji" title=":muscle:" alt=":muscle:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png" height="20" width="20"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>main object: table (rows, columns)
 for the users it looks like a set of tables</p>
 
@@ -392,67 +449,6 @@ for the users it looks like a set of tables</p>
 <h3 id="Creating-and-sharing-the-report">
 <a class="anchor" href="#Creating-and-sharing-the-report" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating and sharing the report<a class="anchor-link" href="#Creating-and-sharing-the-report"> </a>
 </h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Install-the-database">
-<a class="anchor" href="#Install-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the database<a class="anchor-link" href="#Install-the-database"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>TODO: refer to the ending of the previous section</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Choose-the-database">
-<a class="anchor" href="#Choose-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Choose the database<a class="anchor-link" href="#Choose-the-database"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>TODO: I'm not sure but it seems a bit too long and out of context</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Do you remember the cult movie from 1999 "The Matrix"? There was this very memorable scene where Neo was given a choice between two pills, the red one and the blue one. He had a one in a lifetime opportunity to decide whether he wants to go on living in lie or find out the truth.</p>
-<p>There are two remarkable ascpects of this decision. First, one of the options feels to be objectively more "correct". No one wants his life to be a lie. Secondly, after making this decision, there was no way back, which made it an extremely difficult choice.</p>
-<p><code>TODO: consider moving section about different dbs and providers to intro - but not sure about that (keep principles in mind</code></p>
-<p>At this point of the book, you also need to make a decision. There are many different database solutions and many different SQL flavours. This book covers couple of them, so you need to pick the one that you'll move on with. Compared to the dilemma that Neo faced, the decision that you are going to make is both easier and more difficult at the same time.</p>
-<p>It's more difficult, because there is no answer which is more "correct" than the others. All solutions discussed in this book are widely used. All of them have advantages and disadvantages and there is no "the right choice". Fortunately, unlike the Neo, you don't need to live with this decision for the rest of your life. Quite the opposite! You can start with one tool and later on come back to try another one.</p>
-<p>It gets even better than that. There is a standard that describes the principles of the SQL language. It means that even if you learn one implementation of the SQL (e.g. SQLite) and want to switch to another one (e.g. PostgreSQL), you should be able to transfer most of your knowledge. To be clear, it doesn't mean that each vendor implements the language in an identical way. They try to follow the standard to some degree but there are some differences. Those discrepancie however are reasonable enough to make your knowledge universal most of the time. You will see a note whenever we stamble upon a solution that is very specific to given tool.</p>
-<p>Let's now start working on the database installation. In this book we use SQLite as a default option to show you the process. If you want to see instructions for other databases, visit one of the links:</p>
-<ul>
-<li>Big Query (todo: in the backlog): <a href="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html">link</a>,</li>
-<li>SQLite via Python (todo: in the backlog): link,</li>
-<li>PostgreSQL (todo: in the backlog): link.
-<div class="flash">
-    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>As for now, the book shows all the steps needed to install the database on Windows 10. If you’re using other OS, you might want to pick Big Query. Having a browser installed is the only requirement to make it work.
-</div>
-</li>
-</ul>
-<p><code>TODO: matrix/table showing prons/cons of starting with each of the solutions</code>
-<code>TODO: maybe more info in general about different dbs</code></p>
-<p>Let's get started! <img class="emoji" title=":muscle:" alt=":muscle:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png" height="20" width="20"></p>
-
 </div>
 </div>
 </div>
@@ -541,13 +537,13 @@ for the users it looks like a set of tables</p>
 <p>Remember that SQLite database is just a file? You can double check if it worked by going to the folder and checking if you can see a new file <code>./covid.db</code>.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If you don’t see the file with your database, try typing <code>.databases</code> insinde the SQLite terminal and double check once again.
 </div>
 </li>
 <li>You can now close your terminal. You've just successfully created an SQLite database! You will see how to interact with your database in a beginner-friendly way in the next section.
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If for some reason you struggle to create a new database using the standard approach, move forward to the next section. You will see an alternative way of achieving the same results.
 </div>
 </li>
@@ -578,7 +574,7 @@ for the users it looks like a set of tables</p>
 <p>Inside "SQLiteStudio" directory, you will find an "SQLiteStudio.exe" file. You can already click it to open the tool.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>It is possible that you will be shown a Windows warning about opening non-trusted application. "SQLiteStudio" is an open source project and all of its code is available for the public. As you can find out in an official <a href="https://github.com/pawelsalawa/sqlitestudio">GitHub repo</a>, it’s maintained for a couple of years and many people are using it. You can safely ignore the warning.
 </div>
 That's it! No further installation required. I told you that it's easy! Let's now connect SQLiteStudio to the database created in the previous step.
@@ -588,7 +584,7 @@ That's it! No further installation required. I told you that it's easy! Let's no
 </li>
 <li>Let's keep "SQLite 3" as a database type. In the "File" section enter the path to your database file (<code>covid.db</code>) or click on the folder icon to select it from your computer.
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>As you can see, SQLiteStudio provides you with an even simpler way of creating new database file. All you need to do is to click a green icon "Create new database file".
 </div>3. SQLiteStudio will set a name for your database by default but you can change it. You can also decide wheter you want to see your database each time you open the app by checking the "Permanent" option.</li>
 <li>You can now "Test connection" and hit "OK" if everything works fine.</li>
@@ -656,7 +652,7 @@ That's it! No further installation required. I told you that it's easy! Let's no
 <p>Technically the csv name and file extension are not a perfect fit if you don't use commas as your separators. However, you'll often see that people use this format anyway even when the separator is different. As it's still a text file, it will work just fine.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>You may come across a "tsv" file. It’s a specific name for a delimited file that uses tabs as separators. In most of the tools, you should be able to import it using "import csv" option and selecting tab or "\t" as your delimiter.
 </div>
 Back in our case, to check if the first line of our file contains header, you can open it using any text editor. Notepad is the simplest option. Right click on your file, choose "Open with..." and select Notepad from the list. When you have your file opened, you can check the first line of the text. You will see values like: "country", "iso_code", "date", "total_vaccinations" which definitely look like a column names. Make sure to check "first line represents CSV column names" option in SQLiteStudio.
@@ -715,7 +711,7 @@ Back in our case, to check if the first line of our file contains header, you ca
 <p>You can try to execute this query inside the SQLiteStudio. Click on <em>Tools</em> in the top menu and select "Open SQL editor". You will see a new window where you can type some text. Copy or <em>even better</em> rewrite the SQL code inside this editor.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>Although copying and rewriting the code will provide you with the same result, typing the code yourself can be an effective learning technique.
 </div>
 <p>To execute the query and see results you can either click on the "play button" or hit "F9" on your keyboard. Outcome will be displayed in a table below the editor. As expected, you should see information about daily vaccinations in USA sorted descending by date.</p>
