@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      43 min read
+      42 min read
     
 </span></p>
 
@@ -121,21 +121,14 @@ window.onload = wrap_img;
 <a href="#A-look-inside-a-database">A look inside a database </a>
 <ul>
 <li class="toc-entry toc-h5"><a href="#Choose-a-database">Choose a database </a></li>
-<li class="toc-entry toc-h5"><a href="#Install-a-database">Install a database </a></li>
+<li class="toc-entry toc-h5"><a href="#Install-a-database-(SQLite)">Install a database (SQLite) </a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#Manipulating-data-with-SQL">Manipulating data with SQL </a></li>
 <li class="toc-entry toc-h3"><a href="#Importing-data-to-the-BI-tool">Importing data to the BI tool </a></li>
-<li class="toc-entry toc-h3">
-<a href="#Creating-and-sharing-the-report">Creating and sharing the report </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#SQLite-introduction">SQLite introduction </a></li>
-<li class="toc-entry toc-h4"><a href="#SQLite-installation">SQLite installation </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#Interact-with-your-database">Interact with your database </a></li>
+<li class="toc-entry toc-h3"><a href="#Creating-and-sharing-the-report">Creating and sharing the report </a></li>
 <li class="toc-entry toc-h3"><a href="#Download-the-data">Download the data </a></li>
 <li class="toc-entry toc-h3"><a href="#Import-the-data">Import the data </a></li>
 <li class="toc-entry toc-h3">
@@ -361,7 +354,7 @@ The very basic database can be as simple as a shopping list. It can store inform
 <li>a list of tables, often organized in groups (those groups are called either databases or projects, depending on the product that you use),</li>
 <li>an SQL editor, where you can type in your SQL code.</li>
 </ul>
-<p>At this point it's probably quite hard to imagine. Fortunately you can see it with our own eyes. First, we need a database.</p>
+<p>At this point it's probably quite hard to imagine. Fortunately you can see it with our own eyes. But first, you need a database.</p>
 
 </div>
 </div>
@@ -382,15 +375,22 @@ The very basic database can be as simple as a shopping list. It can store inform
 <p>There are two remarkable ascpects of this decision. First, one of the options feels to be objectively more "correct". No one wants his life to be a lie. Secondly, after making this decision, there was no way back, which made it an extremely difficult choice.</p>
 <p>At this point, you also need to make a decision. As already mentioned, there are many different database solutions. This book covers a couple of them (currently two, more to come!). You need to pick one that you'll move on with. Compared to the dilemma that Neo faced, the decision that you are going to make is both easier and more difficult at the same time.</p>
 <p>It's more difficult, because there is no answer which is more "correct" than the others. All solutions discussed in this book are widely used. All of them have advantages and disadvantages and there is no "the right choice". A good side of things is that, unlike Neo, you don't need to live with this decision for the rest of your life. Quite the opposite! You can start with one tool and later on come back to try another one.</p>
-<p>We're jumping a bit ahead but it's important to realise that although most providers support SQL, there are multiple variations of this language. Providers often implement certain functionalities in their own way. In practice it means that code created to work with one database, unless very basic, would not work with another one.<br>
-Thankfully, there is a standard that describes the principles of the SQL language. Providers do not implement it strictly, but conveniently it's followed to some degree. Even though we have different <em>SQL flavours</em>, which are not identical, the core principles remain the same. As a result if you learn one SQL flavour, you should be able to easily swith to a different one (probably after some googling here and there).</p>
+<p>We're jumping a bit ahead but it's important to realise that although most providers support SQL, there are multiple variations of this language. Providers often implement certain functionalities in their own way. In practice it means that code created to work with one database, unless very basic, would not work with another one.</p>
+<p>Thankfully, there is a standard that describes the principles of the SQL language. Providers do not implement it strictly, but conveniently it's followed to some degree. Even though we have different <em>SQL flavours</em>, which are not identical, the core principles remain the same. As a result if you learn one SQL flavour, you should be able to easily swith to a different one (probably after some googling here and there).</p>
 <p><code>TODO: examples of differences will always select, from, where but to_date might be different</code>
 </p>
 <div class="flash">
     <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
     <strong>Note: </strong>In this book you will be informed whenever we use a solution that is specific to a given SQL implementation.
 </div>
-Here's the main takeaway for you. If you have a good reason to use one implementation over the other, start with this implementation. A good example of such reason could be knowing that you will need to use a specific SQL flavour in your work. Otherwise don't spend too much time thinking about it. No matter what solution you start with, you will be able to transfer almost all of your knowledge later on.
+<p>Here's the main takeaway for you. If you have a good reason to use one implementation over the other, start with this implementation. A good example of such reason could be knowing that you will need to use a specific SQL flavour soon. Otherwise don't spend too much time thinking about it. No matter what solution you start with, you will be able to transfer almost all of your knowledge later on.</p>
+<p>From now on we'll use SQLite as a default option to show you the process. If you want to see instructions for other databases, visit one of the links:</p>
+<ul>
+<li>Big Query: (todo: <a href="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html">in progress</a>),</li>
+<li>SQLite via Python: (todo: in the backlog),</li>
+<li>PostgreSQL: (todo: in the backlog).</li>
+</ul>
+<p><code>TODO: think about a matrix comparing different solutions: e.g. easy to set up, cloud vs self-hosted, capabilities)</code></p>
 
 </div>
 </div>
@@ -398,8 +398,8 @@ Here's the main takeaway for you. If you have a good reason to use one implement
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Install-a-database">
-<a class="anchor" href="#Install-a-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install a database<a class="anchor-link" href="#Install-a-database"> </a>
+<h5 id="Install-a-database-(SQLite)">
+<a class="anchor" href="#Install-a-database-(SQLite)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install a database (SQLite)<a class="anchor-link" href="#Install-a-database-(SQLite)"> </a>
 </h5>
 </div>
 </div>
@@ -407,20 +407,96 @@ Here's the main takeaway for you. If you have a good reason to use one implement
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's now start working on the database installation. In this book we use SQLite as a default option to show you the process. If you want to see instructions for other databases, visit one of the links:</p>
-<ul>
-<li>Big Query: (todo: <a href="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html">in progress</a>),</li>
-<li>SQLite via Python: (todo: in the backlog),</li>
-<li>PostgreSQL: (todo: in the backlog).
+<p>In this section you'll see how to install the SQLite database. One of the reasons that SQLite is particurarly good starting point for learning is its simplicity. The entire database is contained in just one file. Setting it up is trivial. It requires hardly any installation and no configuration at all. It's free, so you can use it to its limits without worring about the costs. Developers of the SQLite boast that it's likely the <a href="https://www.sqlite.org/mostdeployed.html">most popular database in the entire world</a>. They aim to keep it reliable until 2050. 
+</p>
 <div class="flash">
     <svg class="octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>As for now, the book shows all the steps needed to install the database on Windows 10. If you’re using other OS, you might want to pick Big Query. Having a browser installed is the only requirement to make it work.
+    <strong>Note: </strong>As for now, the book shows all the steps needed to install SQLite on Windows 10. If you’re using other OS, you might want to pick <a href="https://creaitive.studio/sql/2021/03/18/01_intro_big_query.html">Big Query</a>. Having a browser installed is the only requirement to make it work.
+</div>
+Truth be told, SQLite is as a bit different than most of the other solutions out there. It is a fully reliable database with most of the features that you would expect from a modern solution. However it's characteristics, like storing all the data in one file, make it more suitable for:
+<ul>
+<li>smartphones and other devices,</li>
+<li>websites,</li>
+<li>data analytics.</li>
+</ul>
+<p>You may want to look for the alternative, if your project requires:</p>
+<ul>
+<li>accessing the database from many computers at the same time,</li>
+<li>simultaneous modification of the data by many users,</li>
+<li>working with very large amounts of data (although it officially can handle up to 281 terabytes, having to keep it in one file is the bottleneck here).</li>
+</ul>
+<p>SQLite has some unusual behaviours that are distinct from what you will find anywhere else. Everytime we face such behaviour, you will be informed about it. You can also get familiar with the full list in advance using <a href="https://www.sqlite.org/quirks.html">the official documentation</a>.</p>
+<p>All of that just confirms that there is no single perfect solution. However, features of SQLite make it an amazing candidate for learning. You will set it up in no time that will ensure a great ratio of "using the SQL in practice" vs "struggling to setup the database". Let's now get it up and running <img class="emoji" title=":muscle:" alt=":muscle:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png" height="20" width="20"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>TODO: skip it and start with SQLite studio for easier installation. Mention that there are two methods but we'll use one that is more convenient for learning.Link to the advanced version.</code></p>
+<p>You'll now see how to set up your own SQLite database. As mentioned before, this instruction shows how to do it in Windows 10. Let's get started <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"></p>
+<ol>
+<li>
+<p>First you need to visit the SQLite <a href="https://www.sqlite.org/download.html">Download Page</a>. You'll see a list with different sections. Go to "Precompiled Binaries for Windows" and find the link for "bundle of command-line tools". Click on the link to download the .zip file.</p>
+</li>
+<li>
+<p>Right click the .zip file and uncompress it. SQLite is portable, you don't need to install it. Actually, you can start using it right now.</p>
+</li>
+<li>
+<p>Go to catalog with three files: "sqldiff.exe", "sqlite3.exe" and "sqlite3_analyzer.exe" and open "sqldiff.exe".</p>
+</li>
+<li>
+<p>You will now see a terminal where you are able to run different SQLite commands. To create a database, we need to use following command <code>.open your_path</code>, where <code>your_path</code> stands for the path of your new database. You can replace it with <code>./covid.db</code> that will create a new database inside your current directory. The full command would be <code>.open ./codiv.db</code>. If you wan't to provide a full path, you need to use "/" instead of "\" to specify it.</p>
+</li>
+<li>
+<p>Remember that SQLite database is just a file? You can double check if it worked by going to the folder and checking if you can see a new file <code>./covid.db</code>.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>If you don’t see the file with your database, try typing <code>.databases</code> insinde the SQLite terminal and double check once again.
 </div>
 </li>
-</ul>
-<p><code>TODO: matrix/table showing prons/cons of starting with each of the solutions</code>
-<code>TODO: maybe more info in general about different dbs</code></p>
-<p>Let's get started! <img class="emoji" title=":muscle:" alt=":muscle:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png" height="20" width="20"></p>
+<li>You can now close your terminal. You've just successfully created an SQLite database! You will see how to interact with your database in a beginner-friendly way in the next section.
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>If for some reason you struggle to create a new database using the standard approach, move forward to the next section. You will see an alternative way of achieving the same results.
+</div>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once you have your database created, you can start using it. There are plenty of tools that provide a user interface just for that. One of them, that is free, very easy to start with and intuitive to use is SQLiteStudio. It is designed specifically for SQLite databases. Let's try to install it.</p>
+<p><code>TODO: maybe instructions are too detailed? E.g. download vs find download button</code></p>
+<ol>
+<li>Visit official <a href="https://sqlitestudio.pl/">SQLiteStudio website</a> and click "Download" button. After a while, you will see a new .zip file downloaded to your computer.</li>
+<li>Uncompress the file an open the new folder that appeared on your computer. You should find an "SQLiteStudio" directory inside that folder.</li>
+<li>This step is optional but recommended. Move the "SQLiteStudio" folder to the place, where you would like to store it permamently (e.g. your C:\ drive). You can create a shortcut to "SQLiteStudio.exe" file for easy access e.g. from your Desktop.</li>
+<li>
+<p>Inside "SQLiteStudio" directory, you will find an "SQLiteStudio.exe" file. You can already click it to open the tool.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>It is possible that you will be shown a Windows warning about opening non-trusted application. "SQLiteStudio" is an open source project and all of its code is available for the public. As you can find out in an official <a href="https://github.com/pawelsalawa/sqlitestudio">GitHub repo</a>, it’s maintained for a couple of years and many people are using it. You can safely ignore the warning.
+</div>
+That's it! No further installation required. I told you that it's easy! Let's now connect SQLiteStudio to the database created in the previous step.
+</li>
+<li>
+<p>First, click on the "Database" menu and then select "Add a database" option.</p>
+</li>
+<li>Let's keep "SQLite 3" as a database type. In the "File" section enter the path to your database file (<code>covid.db</code>) or click on the folder icon to select it from your computer.
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>As you can see, SQLiteStudio provides you with an even simpler way of creating new database file. All you need to do is to click a green icon "Create new database file".
+</div>3. SQLiteStudio will set a name for your database by default but you can change it. You can also decide wheter you want to see your database each time you open the app by checking the "Permanent" option.</li>
+<li>You can now "Test connection" and hit "OK" if everything works fine.</li>
+</ol>
+<p>Great! Your database is now connected to the tool that you'll be using. If you try to see what's inside, you'll find out that the database is empty, which makes a lot of sense. You've just created it from scratch. In the next section you will see how to feed the "COVID-19 vaccinations" dataset into your database. Along the way, you'll also discover different features of SQLite and SQLiteStudio.</p>
 
 </div>
 </div>
@@ -467,148 +543,6 @@ for the users it looks like a set of tables</p>
 <h3 id="Creating-and-sharing-the-report">
 <a class="anchor" href="#Creating-and-sharing-the-report" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating and sharing the report<a class="anchor-link" href="#Creating-and-sharing-the-report"> </a>
 </h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="SQLite-introduction">
-<a class="anchor" href="#SQLite-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQLite introduction<a class="anchor-link" href="#SQLite-introduction"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>TODO: how you can go from db to data useful for the report (two tables at least) The answer is that we import it from the database.</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this section you'll see how to install the SQLite database. One of the reasons that SQLite is particurarly good starting point for learning is its simplicity. The entire database is contained in just one file. Setting it up is trivial. It requires hardly any installation and no configuration at all. It's free, so you can use it to its limits without worring about the costs.</p>
-<p>Beware and don't let the simplicity disguise you. It is a fully reliable database with most of the features that you would expect from the modern SQL database. It's characteristics make it a perfect choice for:</p>
-<ul>
-<li>smartphones and other devices,</li>
-<li>websites,</li>
-<li>data analytics,</li>
-<li>and many more.</li>
-</ul>
-<p>Developers of the SQLite boast that it's likely the <a href="https://www.sqlite.org/mostdeployed.html">most popular database in the entire world</a>. They also strive to keep it reliable until 2050.</p>
-<p>Truth be told, SQLite as a bit different than its more traditional brothers - fully fledged relational database management systems (RDBMS), like PostgreSQL, SQL Server or Oracle. It's not a good choice for every use case. You may decide to choose an alternative, if your project requires:</p>
-<ul>
-<li>accessing the database directly from many computers at the same time,</li>
-<li>simultaneous modification of the data by many users,</li>
-<li>working with very large amounts of data (although it officially can handle up to 281 terabytes, having to keep it in one file is the bottleneck here).</li>
-</ul>
-<p>It also has some unusual behaviours that are distinct from what you will find anywhere else. Everytime we face such behaviour, you will see be informed about it. You can also get familiar with the full list in advance using <a href="https://www.sqlite.org/quirks.html">the official documentation</a>. You can an example of a note below.
-</p>
-<div class="flash">
-    <svg class="octicon octicon-info octicon octicon-info octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>SQLite is not a replacement for more traditional solutions. Unlike most databases it doesn’t come with a dedicated server. That’s why the use cases for this tool are different from use cases handled by standard database management systems.
-</div>
-<p>At this point you should be aware that there's no single perfect database solution. Features of SQLite make it an amazing candidate for learning and that's why we use it as a default technology in this book. With SQLite you'll get a great ratio of "using the SQL" vs "trying to setup the database". Finally, if you're not sure which technology you should start with, remember, you're not like Neo. You are free to start with one option and switch to something else whenever you want. Most of your knowledge will be easily transferable.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="SQLite-installation">
-<a class="anchor" href="#SQLite-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQLite installation<a class="anchor-link" href="#SQLite-installation"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>TODO: maybe skip it and start with SQLite studio for easier installation?? Or have both but the more advanced hidden?</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>TODO: here or earlier - database installation is needed to follow the excercises</code></p>
-<p>You'll now see how to set up your own SQLite database. As mentioned before, this instruction shows how to do it in Windows 10. Let's get started <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"></p>
-<ol>
-<li>
-<p>First you need to visit the SQLite <a href="https://www.sqlite.org/download.html">Download Page</a>. You'll see a list with different sections. Go to "Precompiled Binaries for Windows" and find the link for "bundle of command-line tools". Click on the link to download the .zip file.</p>
-</li>
-<li>
-<p>Right click the .zip file and uncompress it. SQLite is portable, you don't need to install it. Actually, you can start using it right now.</p>
-</li>
-<li>
-<p>Go to catalog with three files: "sqldiff.exe", "sqlite3.exe" and "sqlite3_analyzer.exe" and open "sqldiff.exe".</p>
-</li>
-<li>
-<p>You will now see a terminal where you are able to run different SQLite commands. To create a database, we need to use following command <code>.open your_path</code>, where <code>your_path</code> stands for the path of your new database. You can replace it with <code>./covid.db</code> that will create a new database inside your current directory. The full command would be <code>.open ./codiv.db</code>. If you wan't to provide a full path, you need to use "/" instead of "\" to specify it.</p>
-</li>
-<li>
-<p>Remember that SQLite database is just a file? You can double check if it worked by going to the folder and checking if you can see a new file <code>./covid.db</code>.
-</p>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>If you don’t see the file with your database, try typing <code>.databases</code> insinde the SQLite terminal and double check once again.
-</div>
-</li>
-<li>You can now close your terminal. You've just successfully created an SQLite database! You will see how to interact with your database in a beginner-friendly way in the next section.
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>If for some reason you struggle to create a new database using the standard approach, move forward to the next section. You will see an alternative way of achieving the same results.
-</div>
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interact-with-your-database">
-<a class="anchor" href="#Interact-with-your-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interact with your database<a class="anchor-link" href="#Interact-with-your-database"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Once you have your database created, you can start using it. There are plenty of tools that provide a user interface just for that. One of them, that is free, very easy to start with and intuitive to use is SQLiteStudio. It is designed specifically for SQLite databases. Let's try to install it.</p>
-<p><code>TODO: maybe instructions are too detailed? E.g. download vs find download button</code></p>
-<ol>
-<li>Visit official <a href="https://sqlitestudio.pl/">SQLiteStudio website</a> and click "Download" button. After a while, you will see a new .zip file downloaded to your computer.</li>
-<li>Uncompress the file an open the new folder that appeared on your computer. You should find an "SQLiteStudio" directory inside that folder.</li>
-<li>This step is optional but recommended. Move the "SQLiteStudio" folder to the place, where you would like to store it permamently (e.g. your C:\ drive). You can create a shortcut to "SQLiteStudio.exe" file for easy access e.g. from your Desktop.</li>
-<li>
-<p>Inside "SQLiteStudio" directory, you will find an "SQLiteStudio.exe" file. You can already click it to open the tool.
-</p>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>It is possible that you will be shown a Windows warning about opening non-trusted application. "SQLiteStudio" is an open source project and all of its code is available for the public. As you can find out in an official <a href="https://github.com/pawelsalawa/sqlitestudio">GitHub repo</a>, it’s maintained for a couple of years and many people are using it. You can safely ignore the warning.
-</div>
-That's it! No further installation required. I told you that it's easy! Let's now connect SQLiteStudio to the database created in the previous step.
-</li>
-<li>
-<p>First, click on the "Database" menu and then select "Add a database" option.</p>
-</li>
-<li>Let's keep "SQLite 3" as a database type. In the "File" section enter the path to your database file (<code>covid.db</code>) or click on the folder icon to select it from your computer.
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>As you can see, SQLiteStudio provides you with an even simpler way of creating new database file. All you need to do is to click a green icon "Create new database file".
-</div>3. SQLiteStudio will set a name for your database by default but you can change it. You can also decide wheter you want to see your database each time you open the app by checking the "Permanent" option.</li>
-<li>You can now "Test connection" and hit "OK" if everything works fine.</li>
-</ol>
-<p>Great! Your database is now connected to the tool that you'll be using. If you try to see what's inside, you'll find out that the database is empty, which makes a lot of sense. You've just created it from scratch. In the next section you will see how to feed the "COVID-19 vaccinations" dataset into your database. Along the way, you'll also discover different features of SQLite and SQLiteStudio.</p>
-
 </div>
 </div>
 </div>
