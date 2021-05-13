@@ -122,15 +122,11 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h5"><a href="#Choose-a-database">Choose a database </a></li>
 <li class="toc-entry toc-h5"><a href="#Install-a-database-(SQLite)">Install a database (SQLite) </a></li>
+<li class="toc-entry toc-h5"><a href="#See-a-database-/-download-the-data">See a database / download the data </a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-entry toc-h1">
-<a href="#collapse-hide">collapse-hide </a>
-<ul>
 <li class="toc-entry toc-h3"><a href="#Manipulating-data-with-SQL">Manipulating data with SQL </a></li>
 <li class="toc-entry toc-h3"><a href="#Importing-data-to-the-BI-tool">Importing data to the BI tool </a></li>
 <li class="toc-entry toc-h3"><a href="#Creating-and-sharing-the-report">Creating and sharing the report </a></li>
@@ -151,9 +147,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#Prepare-your-first-dashboard">Prepare your first dashboard </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#Teach-others">Teach others </a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#Teach-others">Teach others </a></li>
 </ul>
 <!--
 #################################################
@@ -434,6 +430,18 @@ Truth be told, SQLite is as a bit different than most of the other solutions out
 <p>All of that just confirms that there is no single perfect solution. However, features of SQLite make it an amazing candidate for learning. You will set it up in no time that will ensure a great ratio of "using the SQL in practice" vs "struggling to setup the database". Let's now get it up and running <img class="emoji" title=":muscle:" alt=":muscle:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4aa.png" height="20" width="20"></p>
 <p>There are two ways of creating a new SQLite database described in this book. The first one, which we call "simple installation", allows you to set up a new database with just few clicks. I recommended using it as it's the quickest route to start using SQL in practice.</p>
 <p>The "advanced installation" is only included because it's the official way of creating new database files described in the documentation. It requires using a command line, which makes it a bit more complex. Feel free to check it out and don't hesistate to switch back to the simple solution if you get stuck. There is no point to invest too much here. In the following sections it won't matter which solution you've chosen.</p>
+<p>Both solutions will require you having SQLiteStudio on your computer. It's an app that provides a user-friendly interface, where you can actually <em>see</em> what's inside your SQLite database and run your SQL queries. We'll use this tool very frequently until the end of this book. It's free, intuitive and very easy to start with. Let's see how to install it.</p>
+<ol>
+<li>Visit official <a href="https://sqlitestudio.pl/">SQLiteStudio website</a> and click "Download" button.</li>
+<li>You should see a new "sqlitestudio-{version}.zip" zip file on your computer ({version} is a version number, for example 3.3.3). Unzip the file. You should see an "SQLiteStudio" directory after opening the unzipped folder that appeared on your computer.</li>
+<li>This step is optional but recommended. Move the "SQLiteStudio" folder to the place, where you would like to store it permamently (e.g. your C:\ drive). You can create a shortcut to "SQLiteStudio.exe" file for easy access e.g. from your Desktop.</li>
+<li>You're now ready to start using SQLiteStudio after opening "SQLiteStudio.exe" file that you can find in "SQLiteStudio" directory. 
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>It’s possible that you will be shown a Windows warning about opening non-trusted application. "SQLiteStudio" is an open source project and all of its code is available for the public. As you can find out in the official <a href="https://github.com/pawelsalawa/sqlitestudio">GitHub repo</a>, it’s maintained for a couple of years and many people are using it. You should be able to safely ignore the warning.
+</div>
+That's it! No further installation required. You can now create a new database and start using it inside SQLiteStudio.</li>
+</ol>
 
 </div>
 </div>
@@ -442,6 +450,15 @@ Truth be told, SQLite is as a bit different than most of the other solutions out
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Simple installation</strong></p>
+<p>A simple approach to create a new database is fully based on using your brand-new SQLiteStudio app.</p>
+<ol>
+<li>Open the SQLiteStudio, click on the "Database" menu and then select "Add a database" option.</li>
+<li>Keep "SQLite 3" as a database type. Click on a green icon "Create new database file".</li>
+<li>Remember that SQLite database is just a file? You are now able to select path and name of your database file (<code>accomodation.db</code>).</li>
+<li>By checking the "Permanent" option you will make sure that you see your database each time you open the app.</li>
+<li>Finally, you can now "Test connection" and hit "OK" if everything works fine. You should be now able to find a new <code>accomodation.db</code> file in the path that you've specified before.</li>
+</ol>
+<p>Great! You've just created a new database that is ready to be used.</p>
 
 </div>
 </div>
@@ -449,9 +466,6 @@ Truth be told, SQLite is as a bit different than most of the other solutions out
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="collapse-hide">
-<a class="anchor" href="#collapse-hide" aria-hidden="true"><span class="octicon octicon-link"></span></a>collapse-hide<a class="anchor-link" href="#collapse-hide"> </a>
-</h1>
 <p><strong>Advanced installation</strong></p>
 <ol>
 <li>
@@ -467,16 +481,16 @@ Truth be told, SQLite is as a bit different than most of the other solutions out
 <p>You will now see a terminal where you are able to run different SQLite commands. To create a database, we need to use following command <code>.open your_path</code>, where <code>your_path</code> stands for the path of your new database. You can replace it with <code>./accomodation.db</code> that will create a new database inside your current directory. The full command would be <code>.open ./accomodation.db</code>. If you wan't to provide a full path, you need to use "/" instead of "\" to specify it.</p>
 </li>
 <li>
-<p>Remember that SQLite database is just a file? You can double check if it worked by going to the folder and checking if you can see a new file <code>./accomodation.db</code>.
+<p>You can double check if it worked by going to the folder and checking if you can see a new database file <code>./accomodation.db</code>.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If you don’t see the file with your database, try typing <code>.databases</code> insinde the SQLite terminal and double check once again.
 </div>
 </li>
 <li>You can now close your terminal. You've just successfully created an SQLite database!
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If for some reason you struggle to create a new database using this approach, it might be easier to ease SQLiteStudio for this purpose. It’s an alternative way of achieving the same results.
 </div>
 </li>
@@ -488,32 +502,7 @@ Truth be told, SQLite is as a bit different than most of the other solutions out
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Once you have your database created, you can start using it. There are plenty of tools that provide a user interface just for that. One of them, that is free, very easy to start with and intuitive to use is SQLiteStudio. It is designed specifically for SQLite databases. Let's try to install it.</p>
-<p><code>TODO: maybe instructions are too detailed? E.g. download vs find download button</code></p>
-<ol>
-<li>Visit official <a href="https://sqlitestudio.pl/">SQLiteStudio website</a> and click "Download" button. After a while, you will see a new .zip file downloaded to your computer.</li>
-<li>Uncompress the file an open the new folder that appeared on your computer. You should find an "SQLiteStudio" directory inside that folder.</li>
-<li>This step is optional but recommended. Move the "SQLiteStudio" folder to the place, where you would like to store it permamently (e.g. your C:\ drive). You can create a shortcut to "SQLiteStudio.exe" file for easy access e.g. from your Desktop.</li>
-<li>
-<p>Inside "SQLiteStudio" directory, you will find an "SQLiteStudio.exe" file. You can already click it to open the tool.
-</p>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>It is possible that you will be shown a Windows warning about opening non-trusted application. "SQLiteStudio" is an open source project and all of its code is available for the public. As you can find out in an official <a href="https://github.com/pawelsalawa/sqlitestudio">GitHub repo</a>, it’s maintained for a couple of years and many people are using it. You can safely ignore the warning.
-</div>
-That's it! No further installation required. I told you that it's easy! Let's now connect SQLiteStudio to the database created in the previous step.
-</li>
-<li>
-<p>First, click on the "Database" menu and then select "Add a database" option.</p>
-</li>
-<li>Let's keep "SQLite 3" as a database type. In the "File" section enter the path to your database file (<code>covid.db</code>) or click on the folder icon to select it from your computer.
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>As you can see, SQLiteStudio provides you with an even simpler way of creating new database file. All you need to do is to click a green icon "Create new database file".
-</div>3. SQLiteStudio will set a name for your database by default but you can change it. You can also decide wheter you want to see your database each time you open the app by checking the "Permanent" option.</li>
-<li>You can now "Test connection" and hit "OK" if everything works fine.</li>
-</ol>
-<p>Great! Your database is now connected to the tool that you'll be using. If you try to see what's inside, you'll find out that the database is empty, which makes a lot of sense. You've just created it from scratch. In the next section you will see how to feed the "COVID-19 vaccinations" dataset into your database. Along the way, you'll also discover different features of SQLite and SQLiteStudio.</p>
+<p><code>TODO: review above section - simple/advanced installation is probably not the best name</code></p>
 
 </div>
 </div>
@@ -521,7 +510,26 @@ That's it! No further installation required. I told you that it's easy! Let's no
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>main object: table (rows, columns)
+<p>database is empty, we need to import some data</p>
+<p>If you try to see what's inside, you'll find out that the database is empty, which makes a lot of sense. You've just created it from scratch. In the next section you will see how to feed the "COVID-19 vaccinations" dataset into your database. Along the way, you'll also discover different features of SQLite and SQLiteStudio.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="See-a-database-/-download-the-data">
+<a class="anchor" href="#See-a-database-/-download-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>See a database / download the data<a class="anchor-link" href="#See-a-database-/-download-the-data"> </a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>refer to the part with tables
+main object: table (rows, columns)
 for the users it looks like a set of tables</p>
 
 </div>
@@ -621,7 +629,7 @@ for the users it looks like a set of tables</p>
 <p>Technically the csv name and file extension are not a perfect fit if you don't use commas as your separators. However, you'll often see that people use this format anyway even when the separator is different. As it's still a text file, it will work just fine.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>You may come across a "tsv" file. It’s a specific name for a delimited file that uses tabs as separators. In most of the tools, you should be able to import it using "import csv" option and selecting tab or "\t" as your delimiter.
 </div>
 Back in our case, to check if the first line of our file contains header, you can open it using any text editor. Notepad is the simplest option. Right click on your file, choose "Open with..." and select Notepad from the list. When you have your file opened, you can check the first line of the text. You will see values like: "country", "iso_code", "date", "total_vaccinations" which definitely look like a column names. Make sure to check "first line represents CSV column names" option in SQLiteStudio.
@@ -680,7 +688,7 @@ Back in our case, to check if the first line of our file contains header, you ca
 <p>You can try to execute this query inside the SQLiteStudio. Click on <em>Tools</em> in the top menu and select "Open SQL editor". You will see a new window where you can type some text. Copy or <em>even better</em> rewrite the SQL code inside this editor.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>Although copying and rewriting the code will provide you with the same result, typing the code yourself can be an effective learning technique.
 </div>
 <p>To execute the query and see results you can either click on the "play button" or hit "F9" on your keyboard. Outcome will be displayed in a table below the editor. As expected, you should see information about daily vaccinations in USA sorted descending by date.</p>
