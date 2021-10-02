@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      49 min read
+      55 min read
     
 </span></p>
 
@@ -105,6 +105,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2">
 <a href="#Getting-started">Getting started </a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#What-is-a-database?">What is a database? </a></li>
+<li class="toc-entry toc-h3"><a href="#What-a-database-looks-like?">What a database looks like? </a></li>
+<li class="toc-entry toc-h3"><a href="#What-is-an-SQL?">What is an SQL? </a></li>
 <li class="toc-entry toc-h3"><a href="#Why-should-I-learn-SQL?">Why should I learn SQL? </a></li>
 <li class="toc-entry toc-h3"><a href="#What-are-the-limitations-of-SQL?">What are the limitations of SQL? </a></li>
 <li class="toc-entry toc-h3"><a href="#A-short-advice">A short advice </a></li>
@@ -216,6 +219,96 @@ PS. If you actually are into hardcore coding marathons, you should be able to fi
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-is-a-database?">
+<a class="anchor" href="#What-is-a-database?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is a database?<a class="anchor-link" href="#What-is-a-database?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you're just getting started a word "database" can seem quite overwhelming. If you give it a try though, it's not that difficult to understand why people have developed such thing and why they've become so popular.</p>
+<p>In plain words, a database is <em>an organized collection of information</em>. Notice, that at this point, there is no mention of computers at all. The simplest database can be <em>really</em> simple. Only two pieces are required:</p>
+<ul>
+<li>some information and</li>
+<li>some <em>organized</em> way to store it. 
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>What’s the simplest example of a database that comes to your mind? Think about it for two minutes before reading on.
+</div>
+The very basic database can be as simple as a shopping list. It stores information about things that you want to buy. A slightly more complex examples would be a patient card, a phone book or a home budget. If you think about it, databases are everywhere.</li>
+</ul>
+<p>A very basic database, like a shopping list, could be stored on something as simple as a piece of paper. A phone book, which is slightly more complex, would require, well, lots of pages <img class="emoji" title=":sunglasses:" alt=":sunglasses:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png" height="20" width="20"> For a home budget, a spreadsheet could be a wise choice. You can feel that there is some kind of a relationship here. <em>The more data you have, the more advanced tool you need</em>.</p>
+<p>If you think about companies, they store much more data that you ever could. Even a small, traditional business like a physical store, needs to keep track of all the transactions, supplies, bank accounts, employees, salaries and the list goes on.</p>
+<p>Dealing with such amounts of data is a difficult task. That's why people had to invent a way to do that. Nowadays this knowledge is built into <em>database systems</em>, tools designed specifically for this task. In practice, people often call such systems <em>a database</em>. That's what they usually mean when they say this word.</p>
+<blockquote>
+<p>Definition:Database system (often referred to as a <em>database</em>) is a piece of software developed precisely to store and manage data on computers.
+There are many database solutions on the market. Some of them are free, while the other require some kind of payment. A good very good thing is that most of them:</p>
+<ul>
+<li>look familiar when you start using them and </li>
+<li>support SQL as the main way to work with data.</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-a-database-looks-like?">
+<a class="anchor" href="#What-a-database-looks-like?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What a database looks like?<a class="anchor-link" href="#What-a-database-looks-like?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you pick two random database products, they can be entirely different in terms of the underlying concepts (e.g. MySQL vs Hive vs SQLite). As you can image, for a single mind, it would be extremely hard to grasp all the possible variations. Fortunately, despite all the complexity, most of the solutions provide a common interface for interacting with data. And that interface is not that difficult to understand. It's mainly built of tables.</p>
+<p><code>TODO: possibly a link to comparison of concepts behind MySQL vs Hive vs SQLite</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-is-an-SQL?">
+<a class="anchor" href="#What-is-an-SQL?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is an SQL?<a class="anchor-link" href="#What-is-an-SQL?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Most companies store their data in some kind of a database. In the simplest words, a database in general is <em>an organized collection of information</em>. Notice, that at this point, there is no mention about computer systems or the amount of this information. The simplest database can be <em>really</em> simple. Only two components are required:</p>
+<ul>
+<li>a piece of information and</li>
+<li>some organized way to store it. 
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>What’s the simplest example of a database that comes to your mind? Think about it for two minutes before reading on.
+</div>
+The very basic database can be as simple as a shopping list. It can store information about what you want to buy. Slightly more complex examples would be a patient card, a phone book or a home budget. If you think about it, databases are everywhere.</li>
+</ul>
+<p>You've probably noticed that a very basic database, like a shopping list, could be stored on something as simple as a single piece of paper. A phone book would require, well, lots of pages <img class="emoji" title=":sunglasses:" alt=":sunglasses:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png" height="20" width="20"> To make it more convenient, an interactive application would be even better. For a home budget, a spreadsheet could be a wise choice. The general principle is, <em>the more data you have, the more advanced tool you need</em>.</p>
+<p>As you can imagine, data used by companies is far more complex than what an average person typically use. Even a relatively simple business like a single, brick and mortar store, needs to keep and process information about each transaction, the supplies, bank account operations, accounting and so on. And that's just a tip of an iceberg. Companies may want to add to this list a bunch of non-required information that helps to build a competitive advantage, like store visitors (curious? <a href="https://www.amazon.com/s?k=people+counter+wireless&amp;crid=36000BFK9YI2V&amp;sprefix=people+counter%2Caps%2C296&amp;ref=nb_sb_ss_ts-doa-p_8_14">see this</a>), promotions, marketing campaigns, loyalty programs and many more.</p>
+<p><code>TODO: update the link</code></p>
+<p>Obviously, a chain of thousands of stores would need to handle this information at scale, for each and every physical locations. That's even without mentioning tech companies with thousands or millions of users that track every mouse movement and every key that you hit on your keyboard. In short, the amount of information used by the companies is overwhelming.</p>
+<p>That's why being able to handle this information requires tools designed specifically with that purpose in mind. A database, in this context, would be a <em>piece of software developed precisely to store and manage data</em>. Modern databases are suitable to manage data at enterprise-level in a reliable, effective and secure way. From now on, whenever you see a word <em>database</em> in this book, that's what it means.</p>
+<p>Database ecosystem is very rich with a variety of solutions. Some of them are being developed by huge corporations and offered commercially (e.g. Oracle Database, Microsoft SQL Server). Others are community-driven and free to use (e.g. PostgreSQL, MySQL, SQLite). You can find solutions that work on-premises (you need to install them on your own computers), and cloud products that run on machines owned by a cloud provider. Finally, there is a group of more traditional, relational database systems and relatively new world of Big Data solutions.</p>
+<p>If you pick two random database products, they can be entirely different in terms of the underlying concepts (e.g. MySQL vs Hive vs SQLite). As you can image, for a single mind, it would be extremely hard to grasp all the possible variations. Fortunately, despite all the complexity, most of the solutions provide a common interface for interacting with data. And that interface is not that difficult to understand. It's mainly built of tables.</p>
+<p><code>TODO: possibly a link to comparison of concepts behind MySQL vs Hive vs SQLite</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Why-should-I-learn-SQL?">
 <a class="anchor" href="#Why-should-I-learn-SQL?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why should I learn SQL?<a class="anchor-link" href="#Why-should-I-learn-SQL?"> </a>
 </h3>
@@ -256,7 +349,7 @@ If you have no prior coding experience, SQL is a great place to start. With a ge
 <p><strong>1. Limited by design</strong></p>
 <p>designed specifically to handle data, that's why it's so good with it, if you need other things, you should check out other technologies</p>
 <p>It's more of a feature that an issue but SQL was designed with a specific purpose in mind: manipulating data in a database. Having this assumption makes it a very friendly, logical and coherent language for this purpose. But it's fair to point out that it also imposes some limitations. If you're looking for a single tool that will manipulate the data, create some charts, save them to pdf and sent via e-mail - SQL is not a go to solution. It's a choice between versatility and accessibility. You can find tools that are more universal but they will surely have a steeper learning curve. SQL provides a great balance between the two.
-<code>TODO: matrix - how complex vs how universal the tool is</code></p>
+<code>complex statistics, ML model</code></p>
 
 </div>
 </div>
@@ -281,7 +374,7 @@ If you have no prior coding experience, SQL is a great place to start. With a ge
 <p>To better illustrate that. Your goal might be to "start using SQL at your work". To achieve that, you plan to "spend 30 minutes every day reading this book". The obstacle that can stand in your way is that "you only have time for reading in the evening, when you're too tired". How to overcome that? You can try to "get up half an hour earlier and start your day with learning".
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If you’re looking for ways to increase the amount of time you have for learning or other activities, I highly recommend the "Make Time" book by Jake Knapp and John Zeratsky. It’s a great guide that will teach you how to have more time to do things that you really want to do. Check it out! <code>TODO: make time book link</code>
 </div>
 That's it, you're now prepared to start your learning journey effectively <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20">
@@ -355,7 +448,7 @@ That's it, you're now prepared to start your learning journey effectively <img c
 <li>a piece of information and</li>
 <li>some organized way to store it. 
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>What’s the simplest example of a database that comes to your mind? Think about it for two minutes before reading on.
 </div>
 The very basic database can be as simple as a shopping list. It can store information about what you want to buy. Slightly more complex examples would be a patient card, a phone book or a home budget. If you think about it, databases are everywhere.</li>
@@ -491,7 +584,7 @@ Truth be told, SQLite is as a bit different than most of the other solutions out
 <p>Open SQLiteStudio by double-clicking on the "SQLiteStudio.exe". 
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>You may be shown a Windows warning about opening non-trusted application. "SQLiteStudio" is an open source project and all of its code is available for the public. As you can find out in the official <a href="https://github.com/pawelsalawa/sqlitestudio">GitHub repo</a>, it’s maintained for a couple of years and many people are using it. You should be able to safely ignore the warning.
 </div>
 <strong>Create a new database</strong>
@@ -519,12 +612,12 @@ This section describes the process of creating a new database using an official 
 4. You should now see a terminal where you can type in and run different SQLite commands. To create a database, you can use `.open your_path` command. You already know that SQLite database is contained in a single file. By adjusting `your_path` argument, you are able specify a path to this file. If you replace it with `./accomodation.db`, a new database will be created inside your current current directory. The full command would be `.open ./accomodation.db`.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>You can provide a full path if you want, but you will need to use "/" instead of "\" when specifying it.
 </div>
 5. You can double check if everything worked by going to the chosen folder and checking if you can see a new database file `./accomodation.db`. If it's there, your database was created successfully!
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>If you don’t see a database file, try typing `.databases` insinde the SQLite terminal and check once again.
 </div>   
 6. You can open your database using "Add a database" option from "Database" menu inside SQLiteStudio. You will need to provide a path to your file. You can keep all the other options unchanged.
@@ -558,13 +651,13 @@ This section describes the process of creating a new database using an official 
 <li>Uncompress the files using dedicated program (7-Zip is a good one available for free). You should now see three .csv files on you computer.</li>
 <li>Open SQLiteStudio and right click on the database name in the "Databases" pane or click on the "Tools" menu and select the "Import" option.
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>"Import" option will not be available if you haven’t connected to the database as described at the very beginning of this section (right click on the name of the database and "Connect to the database").
 </div>
 </li>
 <li>You will be asked to provide database name and table name. Let's start with "calendar.csv" file. Select <code>accomodation</code> database as it's the only one created so far. You can choose whatever name you want for your table but I'd suggest keeping it simple and aligned with the names of the files ("calendar", "listings" and "reviews" respecitvely). Type in the "calendar" and click on the "Next" button.
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>A good rule of thumb for the SQL development and other areas as well is to not make things more complicated than it’s absolutely necessary. We could try to come up with better names for the tables, but having them aligned with the original files has the benefit of being an obvious solution. Imagine having not three but fifty tables and trying to figure out which file is the source of a given table if the naming is not aligned.
 </div>
 </li>
@@ -584,7 +677,7 @@ This section describes the process of creating a new database using an official 
 <p><code>TODO: some picture to make it more understandable - example calendar.csv</code>
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>Technically the .csv file extension is not perfect fit if comma is not used as a separator. However, you’ll often see that people use it anyway, even if the separator is different. As it’s still just a text file, it will work fine. You may also stumble upon a "tsv" file. It’s a specific name for a file that uses tabs as separators. In most of the tools you should be able to import it using "import csv" option and selecting tab or "\t" as your delimiter.
 </div>
 To check if the first line of "calendar.csv" file contains header, open it using any text editor. Notepad is the simplest option. Next, check content of the first line of your file. You will see values similar to: "listing_id", "date", "available", "price", etc. which definitely look like a column names. When importing this file, make sure to check "first line represents CSV column names" option in SQLiteStudio.
@@ -633,7 +726,7 @@ To check if the first line of "calendar.csv" file contains header, open it using
 <p>You should now have a fairly good understanding of what a table is. That's crucial because earlier in the book we've said that the interface that you will use is mostly built of tables. I hope that you now have a feeling of what it means. If you think about it, a database looks a lot like a collection of tables. Having this model in mind will help you a lot when learning SQL. If you don't see it yet, don't worry, it will click. You can try going over this section once again or looking at some sample dummy databases online (<a href="https://relational.fit.cvut.cz/">this is</a> a good place to start).
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>It’s fair to stress that choice of words is not a coincidence here. A database <em>looks like</em> a collection of tables. There is of course a lot of complexity hidden from our eyes. Once again, even though that’s a simplification, it’s one worth having as it makes working with SQL much more intuitive and convenient.
 </div>
 To close this subject it's worth to note that one organization is likely to use multiple databases at the same time. Companies are built of numerous domains, like: sales, operations, finance, marketing, HR, etc. These domains are likely to be managed by different teams and to be supported by different IT systems. In such cases it often makes sense to split the data into several theme-oriented databases.
@@ -691,7 +784,7 @@ To close this subject it's worth to note that one organization is likely to use 
 <p>You can try to execute this query inside the SQLiteStudio. Click on <em>Tools</em> in the top menu and select "Open SQL editor". You will see a new window where you can type some text. Copy or <em>even better</em> rewrite the SQL code inside this editor.
 </p>
 <div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>Although copying and rewriting the code will provide you with the same result, typing the code yourself can be an effective learning technique.
 </div>
 <p>To execute the query and see results you can either click on the "play button" or hit "F9" on your keyboard. Outcome will be displayed in a table below the editor. As expected, you should see information about daily vaccinations in USA sorted descending by date.</p>
