@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Getting started | creaitive.studio</title>
+<title>SQL for Analysts - Getting started | creaitive.studio</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Getting started" />
+<meta property="og:title" content="SQL for Analysts - Getting started" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="See yourself how fun SQL can be!" />
 <meta property="og:description" content="See yourself how fun SQL can be!" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-03-18T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://creaitive.studio/sql/2021/03/18/01_intro.html","@type":"BlogPosting","headline":"Getting started","dateModified":"2021-03-18T00:00:00-05:00","datePublished":"2021-03-18T00:00:00-05:00","image":"https://creaitive.studio/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://creaitive.studio/sql/2021/03/18/01_intro.html"},"description":"See yourself how fun SQL can be!","@context":"https://schema.org"}</script>
+{"url":"https://creaitive.studio/sql/2021/03/18/01_intro.html","@type":"BlogPosting","headline":"SQL for Analysts - Getting started","dateModified":"2021-03-18T00:00:00-05:00","datePublished":"2021-03-18T00:00:00-05:00","image":"https://creaitive.studio/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://creaitive.studio/sql/2021/03/18/01_intro.html"},"description":"See yourself how fun SQL can be!","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://creaitive.studio/feed.xml" title="creaitive.studio" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -76,7 +76,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Getting started</h1>
+    <h1 class="post-title p-name" itemprop="name headline">SQL for Analysts - Getting started</h1>
 <p class="page-description">See yourself how fun SQL can be!</p>
 <p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-18T00:00:00-05:00" itemprop="datePublished">
         Mar 18, 2021
@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      56 min read
+      55 min read
     
 </span></p>
 
@@ -107,6 +107,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#What-is-a-database?">What is a database? </a></li>
 <li class="toc-entry toc-h3"><a href="#What-kind-of-data-is-stored-in-a-database?">What kind of data is stored in a database? </a></li>
+<li class="toc-entry toc-h3"><a href="#What's-a-table?">What's a table? </a></li>
 <li class="toc-entry toc-h3"><a href="#What's-a-table?">What's a table? </a></li>
 <li class="toc-entry toc-h3"><a href="#What-is-an-SQL?">What is an SQL? </a></li>
 <li class="toc-entry toc-h3"><a href="#Why-should-I-learn-SQL?">Why should I learn SQL? </a></li>
@@ -269,7 +270,7 @@ There are many database solutions on the market. Some of them are free, while th
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The kind of data stored in a database depends heavily on the organization. For example a university will store different information than online store. The first one will most likely keep the records of students, teachers, courses, grades, rooms and so on. The online store will be more focused on things like customers, revenues, web traffic, marketing campaigns, etc. In general, every data point that is important for given organization, should have its place in a database.</p>
+<p>The kind of data stored in a database depends heavily on the organization. For example a university will store different information than online store. The first one will most likely keep the records of students, teachers, courses, grades, rooms and so on. The online store will be more focused on things like customers, transactions, web traffic, marketing campaigns, etc. In general, every data point that is important for given organization, should have its place in a database.</p>
 
 </div>
 </div>
@@ -286,18 +287,36 @@ There are many database solutions on the market. Some of them are free, while th
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Although there are plenty of different database solutions out there, from the end user perspective most of them seem pretty similar. That's because they all use <em>a table</em> as a main building block.
+<p>Although there are plenty of different database solutions out there, from the end user perspective most of them seem pretty similar. That's because they all use <em>a table</em> as a main building block. So if you take a look inside a database, that's what you are most likely to see: a collection of multiple tables.
 </p>
 <div class="flash flash-success">
     <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
     <strong>Tip: </strong>That’s actually a great news for you. It means that if you learn to move around in one database system, you will be able to easily switch to another one if needed.
 </div>
-Tables are used to store data. Each table is usually focused on one category of items. The kind of items depends on the company. If we try to imagine a database of university, you could expect to find there
-<p>is stored in tables depend on the organization. For example there might be a table that describes <em>employees</em> or <em>transactions</em>.</p>
-<p>about objects that are essential for the organization. Which objects are important depends of course on the type of organization. The area of interest will be completely different for online store and university. Whereas things like transactions, page views, marketing campaigns and goods in stock will be the most important for the first one, the academic institution will rather focus on students, teachers, courses, class rooms, grades and everything around that.</p>
-<p><code>TODO: show two sample schemas of db, shortly explain them: below you can see schemas of two db, boxes represent ... /  or just a list of tables</code></p>
-<p>You can expect that table related to a given object will have the most important information about it. Taking "transactions" table as an example, it should allow you to identify each transaction and find out when it happened, what exactly was sold, at what price, who bought it, etc. You will work with different tables throughout this book, which will give you a good idea of what you can expect to find inside them.</p>
-<p><code>TODO: diagram with schema of a table: transactions (rows and columns)</code></p>
+Tables are used to store data. Each table is usually focused around one category of items. For example a database of an online store could have following tables:
+<ul>
+<li>transactions,</li>
+<li>customers,</li>
+<li>page_views,</li>
+<li>marketing_campaigns.</li>
+</ul>
+<p>You can expect that a table related to a given category of items will store the most important information about them. For example, a "transactions" table should allow you to learn what was sold, when, at what price, to whom and so on. Similarly, a table related to "customers" should store all the relevant customer information, like: first name, last name, address, phone number, e-mail and more.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What's-a-table?">
+<a class="anchor" href="#What's-a-table?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's a table?<a class="anchor-link" href="#What's-a-table?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Each table in a database is composed of two main elements, rows and columns. Columns are used to represent features describing objects stored in a table. Using our example of "transactions" table, it's likely to have following columns: "transaction_id", "transaction_date", "transaction_item", "price" and "buyer_id".</p>
 <p><code>TODO: a look inside an actual table - with columns highlighted</code>
 <code>TODO: tip: names of the tables and "_"</code></p>
@@ -312,6 +331,14 @@ Tables are used to store data. Each table is usually focused on one category of 
 To close this subject it's worth to note that one organization is likely to use multiple databases at the same time. Companies are built of numerous domains, like: sales, operations, finance, marketing, HR, etc. These domains are likely to be managed by different teams and to be supported by different IT systems. In such cases it often makes sense to split the data into several theme-oriented databases.
 <p><code>TODO: hierarchy schema: multiple databases, database, table, row/column (maybe sack analogy)</code></p>
 <p>The goal of this section was to prepare you to work with the database that you've just created. The next step is to see the concepts that we've just discussed in practice using our <code>accommodation</code> database. At this point, SQL is needed to achieve that.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>TODO: show two sample schemas of db, shortly explain them: below you can see schemas of two db, boxes represent ... /  or just a list of tables</code></p>
 
 </div>
 </div>
