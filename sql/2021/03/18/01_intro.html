@@ -84,7 +84,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      55 min read
+      57 min read
     
 </span></p>
 
@@ -106,11 +106,15 @@ window.onload = wrap_img;
 <a href="#Getting-started">Getting started </a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#What-is-a-database?">What is a database? </a></li>
-<li class="toc-entry toc-h3"><a href="#What-kind-of-data-is-stored-in-a-database?">What kind of data is stored in a database? </a></li>
+<li class="toc-entry toc-h3"><a href="#What-kind-of-data-is-stored-in-a-database?-TODO:-add-to-previous-point">What kind of data is stored in a database? TODO: add to previous point </a></li>
 <li class="toc-entry toc-h3"><a href="#What's-a-table?">What's a table? </a></li>
-<li class="toc-entry toc-h3"><a href="#What's-a-table?">What's a table? </a></li>
-<li class="toc-entry toc-h3"><a href="#What-is-an-SQL?">What is an SQL? </a></li>
+<li class="toc-entry toc-h3"><a href="#What-a-table-is-built-of?">What a table is built of? </a></li>
+<li class="toc-entry toc-h3"><a href="#What's-a-row?">What's a row? </a></li>
+<li class="toc-entry toc-h3"><a href="#What's-a-column?">What's a column? </a></li>
+<li class="toc-entry toc-h3"><a href="#What-is-a-SQL?">What is a SQL? </a></li>
+<li class="toc-entry toc-h3"><a href="#What-does-it-mean-that-SQL-is-a-declarative-language?">What does it mean that SQL is a declarative language? </a></li>
 <li class="toc-entry toc-h3"><a href="#Why-should-I-learn-SQL?">Why should I learn SQL? </a></li>
+<li class="toc-entry toc-h3"><a href="#What's-does-a-SQL-query-look-like?">What's does a SQL query look like? </a></li>
 <li class="toc-entry toc-h3"><a href="#What-are-the-limitations-of-SQL?">What are the limitations of SQL? </a></li>
 <li class="toc-entry toc-h3"><a href="#A-short-advice">A short advice </a></li>
 <li class="toc-entry toc-h3"><a href="#SQL-in-action---the-hands-on-approach">SQL in action - the hands on approach </a></li>
@@ -213,7 +217,8 @@ It's a declarative language, which means that you use it to describe what you wa
 Bonus: **Sweetspot between IT and business**
 There is a group of people who like coding but could not imagine themself doing that all day long. Working with data allows you to find a role that will require both coding and solving business problems. 
 PS. If you actually are into hardcore coding marathons, you should be able to find something for yourself too.</code></p>
-<p><code>Bonus: **SQL vs spreadsheets** If you are coming from a spreadsheet world, you probably wonder how does working with SQL compare to working with spreadsheets. The main benefit is that SQL is much better at providing consistency. Have you ever failed to update your formula when refreshing your report? That will not happen with SQL. You design your logic and keep it in an SQL script that will work exactly the same each and every time. It's like you took all of your knowledge about what you need to do and wrote it down in a file. You don't need to do every step yourself. You dramatically reduce the risk of a human error.</code></p>
+<p><code>Bonus: **SQL vs spreadsheets** If you are coming from a spreadsheet world, you probably wonder how does working with SQL compare to working with spreadsheets. The main benefit is that SQL is much better at providing consistency. Have you ever failed to update your formula when refreshing your report? That will not happen with SQL. You design your logic and keep it in a sql script that will work exactly the same each and every time. It's like you took all of your knowledge about what you need to do and wrote it down in a file. You don't need to do every step yourself. You dramatically reduce the risk of a human error.</code></p>
+<p><code>TODO: tip: names of the tables and "_"</code></p>
 
 </div>
 </div>
@@ -261,8 +266,8 @@ There are many database solutions on the market. Some of them are free, while th
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-kind-of-data-is-stored-in-a-database?">
-<a class="anchor" href="#What-kind-of-data-is-stored-in-a-database?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What kind of data is stored in a database?<a class="anchor-link" href="#What-kind-of-data-is-stored-in-a-database?"> </a>
+<h3 id="What-kind-of-data-is-stored-in-a-database?-TODO:-add-to-previous-point">
+<a class="anchor" href="#What-kind-of-data-is-stored-in-a-database?-TODO:-add-to-previous-point" aria-hidden="true"><span class="octicon octicon-link"></span></a>What kind of data is stored in a database? TODO: add to previous point<a class="anchor-link" href="#What-kind-of-data-is-stored-in-a-database?-TODO:-add-to-previous-point"> </a>
 </h3>
 </div>
 </div>
@@ -287,20 +292,22 @@ There are many database solutions on the market. Some of them are free, while th
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Although there are plenty of different database solutions out there, from the end user perspective most of them seem pretty similar. That's because they all use <em>a table</em> as a main building block. So if you take a look inside a database, that's what you are most likely to see: a collection of multiple tables.
+<p>Although there are plenty of different database system out there, from the end user perspective most of them seem pretty similar. That's because they all use <em>tables</em> to organize data. If you take a look inside a database system, that's what you are most likely to see: a collection of tables.
 </p>
 <div class="flash flash-success">
     <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>That’s actually a great news for you. It means that if you learn to move around in one database system, you will be able to easily switch to another one if needed.
+    <strong>Tip: </strong>A good news for you is that if you learn to move around in one database system, you will be able to easily switch to another one if needed.
 </div>
-Tables are used to store data. Each table is usually focused around one category of items. For example a database of an online store could have following tables:
+Tables are used to store data. Each table is usually focused around one type of items. These can be things like physical objects (goods in stock, rooms in a building), events (purchases, clicks on a website), people (customers, employees) or some intangible concepts (salaries, exchange rates).
+<p><code>TODO: a table with organization types and sample items stored</code></p>
+<p>For example, a database of an online store could contain following tables:</p>
 <ul>
 <li>transactions,</li>
 <li>customers,</li>
 <li>page_views,</li>
 <li>marketing_campaigns.</li>
 </ul>
-<p>You can expect that a table related to a given category of items will store the most important information about them. For example, a "transactions" table should allow you to learn what was sold, when, at what price, to whom and so on. Similarly, a table related to "customers" should store all the relevant customer information, like: first name, last name, address, phone number, e-mail and more.</p>
+<p>You can expect that a table related to a given type of items, contains data about these items. For example, a "transactions" table will host characteristics of every sale made by a company. Similarly, a table related to "customers" will store all the relevant information about the clients.</p>
 
 </div>
 </div>
@@ -308,8 +315,8 @@ Tables are used to store data. Each table is usually focused around one category
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What's-a-table?">
-<a class="anchor" href="#What's-a-table?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's a table?<a class="anchor-link" href="#What's-a-table?"> </a>
+<h3 id="What-a-table-is-built-of?">
+<a class="anchor" href="#What-a-table-is-built-of?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What a table is built of?<a class="anchor-link" href="#What-a-table-is-built-of?"> </a>
 </h3>
 </div>
 </div>
@@ -317,20 +324,8 @@ Tables are used to store data. Each table is usually focused around one category
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Each table in a database is composed of two main elements, rows and columns. Columns are used to represent features describing objects stored in a table. Using our example of "transactions" table, it's likely to have following columns: "transaction_id", "transaction_date", "transaction_item", "price" and "buyer_id".</p>
-<p><code>TODO: a look inside an actual table - with columns highlighted</code>
-<code>TODO: tip: names of the tables and "_"</code></p>
-<p>Rows on the other hand, most commonly, represent objects stored in a table. For example a "transaction" table could have a separate row for each transaction while an "employees" table would keep a separate line for each employee. Each course tought at university, would have it's own record too. You get the idea <img class="emoji" title=":wink:" alt=":wink:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png" height="20" width="20"></p>
-<p><code>TODO: a look inside an actual table - with rows highlighted</code></p>
-<p>You should now have a fairly good understanding of what a table is. That's crucial because earlier in the book we've said that the interface that you will use is mostly built of tables. I hope that you now have a feeling of what it means. If you think about it, a database looks a lot like a collection of tables. Having this model in mind will help you a lot when learning SQL. If you don't see it yet, don't worry, it will click. You can try going over this section once again or looking at some sample dummy databases online (<a href="https://relational.fit.cvut.cz/">this is</a> a good place to start).
-</p>
-<div class="flash flash-success">
-    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
-    <strong>Tip: </strong>It’s fair to stress that choice of words is not a coincidence here. A database <em>looks like</em> a collection of tables. There is of course a lot of complexity hidden from our eyes. Once again, even though that’s a simplification, it’s one worth having as it makes working with SQL much more intuitive and convenient.
-</div>
-To close this subject it's worth to note that one organization is likely to use multiple databases at the same time. Companies are built of numerous domains, like: sales, operations, finance, marketing, HR, etc. These domains are likely to be managed by different teams and to be supported by different IT systems. In such cases it often makes sense to split the data into several theme-oriented databases.
-<p><code>TODO: hierarchy schema: multiple databases, database, table, row/column (maybe sack analogy)</code></p>
-<p>The goal of this section was to prepare you to work with the database that you've just created. The next step is to see the concepts that we've just discussed in practice using our <code>accommodation</code> database. At this point, SQL is needed to achieve that.</p>
+<p>Each table in a database is built of two main components, rows and columns.</p>
+<p><code>TODO: a look inside an actual table - with columns highlighted</code></p>
 
 </div>
 </div>
@@ -338,17 +333,68 @@ To close this subject it's worth to note that one organization is likely to use 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>TODO: show two sample schemas of db, shortly explain them: below you can see schemas of two db, boxes represent ... /  or just a list of tables</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-is-an-SQL?">
-<a class="anchor" href="#What-is-an-SQL?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is an SQL?<a class="anchor-link" href="#What-is-an-SQL?"> </a>
+<h3 id="What's-a-row?">
+<a class="anchor" href="#What's-a-row?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's a row?<a class="anchor-link" href="#What's-a-row?"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Rows represent individual items stored in a table. For example a "transaction" table could have a separate row for each transaction while an "employees" table might keep a separate entry for each employee. Each course tought at university, would have it's own record too. You get the idea <img class="emoji" title=":wink:" alt=":wink:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png" height="20" width="20"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What's-a-column?">
+<a class="anchor" href="#What's-a-column?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's a column?<a class="anchor-link" href="#What's-a-column?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Columns are used to keep information about characteristics of different items stored in a table. Almost every item imaginable has some features. For example, a transaction can be described using: unique id, date, price, article, seller, buyer, shipment and so on. All these pieces of information are usually stored in columns.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-is-a-SQL?">
+<a class="anchor" href="#What-is-a-SQL?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is a SQL?<a class="anchor-link" href="#What-is-a-SQL?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SQL is a language that allows you to interact with data inside a database. You can use it to display, modify, and delete data. It supports many operations, like aggregating, filtering, sorting and joning data. You use it by writing instructions which are often called statements.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-does-it-mean-that-SQL-is-a-declarative-language?">
+<a class="anchor" href="#What-does-it-mean-that-SQL-is-a-declarative-language?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it mean that SQL is a declarative language?<a class="anchor-link" href="#What-does-it-mean-that-SQL-is-a-declarative-language?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SQL is a declarative language, which means that you use it by describing <em>what</em> you want to achieve, not <em>how</em> exactly you want to do that. You don't need to specify all the low-lewel operations to get the desired result. You just describe the final outcome and database figures out the rest for you. You may be surprised that knowledge of some basic English words can be nearly enough to understand simple SQL queries.</p>
+
 </div>
 </div>
 </div>
@@ -374,6 +420,44 @@ Unlike many other languages, SQL has a very compact syntax. You can perform most
 <p><strong>4. Great starting point</strong>
 If you have no prior coding experience, SQL is a great place to start. With a gentle learning curve it allows you to find out very quickly if you enjoy writing code. The learning itself is also very satysfying. You write code and results pop up on your screen almost immediately. It doesn't take long for your skills to become useful. A couple of weeks is sufficient to start using SQL in practice.</p>
 <p>These are the main benefits of SQL that I've found. I hope that you will enjoy using it just as much as I do. Give it a try and find out yourself!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What's-does-a-SQL-query-look-like?">
+<a class="anchor" href="#What's-does-a-SQL-query-look-like?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's does a SQL query look like?<a class="anchor-link" href="#What's-does-a-SQL-query-look-like?"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's go through a simple <em>SQL query</em> to see how it feels to use it. A <em>query</em> is a piece of SQL code that you can use to get data from a database. You can use it for example to feed data into report. This particular query was used to create a map in our report showing rental prices on Airbnb.</p>
+<p>You will now see what I meant by saying that SQL is such a friendly tool. It's a declarative language, which means that you don't need to specify all the low-lewel operations to get the desired result. You just need to describe the final outcome and the database will figure out the rest for you. If you have some basic knowledge of English, you may be suprised that a simple SQL query can be nearly understandable to you.</p>
+<p><code>TODO: replace queries with the new dataset</code></p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span>
+    <span class="n">country</span><span class="p">,</span>
+    <span class="nb">date</span><span class="p">,</span>
+    <span class="n">daily_vaccinations</span>
+<span class="k">FROM</span>
+    <span class="n">covid</span><span class="p">.</span><span class="n">country_vaccinations</span>
+<span class="k">WHERE</span>
+    <span class="n">COUNTRY</span> <span class="o">=</span> <span class="s1">'United States'</span>
+<span class="k">ORDER</span> <span class="k">BY</span>
+    <span class="nb">date</span> <span class="k">DESC</span><span class="p">;</span>
+</pre></div>
+<p>It almost feels like a pseudocode. The cool thing is that it's an actual working query. You start with choosing or <em>selecting</em> columns that you want to use. Next, you specify which database and which table you want to get your data <em>from</em>. You only request rows <em>where</em> certain condition is met. Finally you put your results into specific <em>order</em>. You probably wouldn't be able to write it yourself but it makes an intuitive sence. We'll spend much more time learning how to build your own sql queries later in the book.</p>
+<p>You can try to execute this query inside the SQLiteStudio. Click on <em>Tools</em> in the top menu and select "Open SQL editor". You will see a new window where you can type some text. Copy or <em>even better</em> rewrite the SQL code inside this editor.
+</p>
+<div class="flash flash-success">
+    <svg class="octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist octicon octicon-checklist" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 01.25-.25h8.5a.25.25 0 01.25.25v7.736a.75.75 0 101.5 0V1.75A1.75 1.75 0 0011.25 0h-8.5A1.75 1.75 0 001 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 000-1.5H2.75a.25.25 0 01-.25-.25V1.75zM4.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM4 7.75A.75.75 0 014.75 7h2a.75.75 0 010 1.5h-2A.75.75 0 014 7.75zm11.774 3.537a.75.75 0 00-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 00-1.062 1.058l1.943 1.95a.75.75 0 001.055.008l4.557-4.45z"></path></svg>
+    <strong>Tip: </strong>Although copying and rewriting the code will provide you with the same result, typing the code yourself can be an effective learning technique.
+</div>
+<p>To execute the query and see results you can either click on the "play button" or hit "F9" on your keyboard. Outcome will be displayed in a table below the editor. As expected, you should see information about daily vaccinations in USA sorted descending by date.</p>
 
 </div>
 </div>
@@ -505,8 +589,8 @@ The very basic database can be as simple as a shopping list. It can store inform
 <p>Obviously, a chain of thousands of stores would need to handle this information at scale, for each and every physical locations. That's even without mentioning tech companies with thousands or millions of users that track every mouse movement and every key that you hit on your keyboard. In short, the amount of information used by the companies is overwhelming.</p>
 <p>That's why being able to handle this information requires tools designed specifically with that purpose in mind. A database, in this context, would be a <em>piece of software developed precisely to store and manage data</em>. Modern databases are suitable to manage data at enterprise-level in a reliable, effective and secure way. From now on, whenever you see a word <em>database</em> in this book, that's what it means.</p>
 <p>Database ecosystem is very rich with a variety of solutions. Some of them are being developed by huge corporations and offered commercially (e.g. Oracle Database, Microsoft SQL Server). Others are community-driven and free to use (e.g. PostgreSQL, MySQL, SQLite). You can find solutions that work on-premises (you need to install them on your own computers), and cloud products that run on machines owned by a cloud provider. Finally, there is a group of more traditional, relational database systems and relatively new world of Big Data solutions.</p>
-<p>If you pick two random database products, they can be entirely different in terms of the underlying concepts (e.g. MySQL vs Hive vs SQLite). As you can image, for a single mind, it would be extremely hard to grasp all the possible variations. Fortunately, despite all the complexity, most of the solutions provide a common interface for interacting with data. And that interface is not that difficult to understand. It's mainly built of tables.</p>
-<p><code>TODO: possibly a link to comparison of concepts behind MySQL vs Hive vs SQLite</code></p>
+<p>If you pick two random database products, they can be entirely different in terms of the underlying concepts (e.g. MySQL vs Hive vs sqlite). As you can image, for a single mind, it would be extremely hard to grasp all the possible variations. Fortunately, despite all the complexity, most of the solutions provide a common interface for interacting with data. And that interface is not that difficult to understand. It's mainly built of tables.</p>
+<p><code>TODO: possibly a link to comparison of concepts behind MySQL vs Hive vs sqlite</code></p>
 
 </div>
 </div>
@@ -526,7 +610,7 @@ The very basic database can be as simple as a shopping list. It can store inform
 <p>That's right. If you open a database management app, you will most likely see two things:</p>
 <ul>
 <li>a list of tables, often organized in groups (those groups are called either databases or projects, depending on the product that you use),</li>
-<li>an SQL editor, where you can type in your SQL code.</li>
+<li>a sql editor, where you can type in your SQL code.</li>
 </ul>
 <p>At this point it's probably quite hard to imagine. Fortunately you can see it with our own eyes. But first, you need a database.</p>
 
@@ -1018,7 +1102,7 @@ To close this subject it's worth to note that one organization is likely to use 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That's it, you've just created you first end-to-end data project <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"> You've set up a database, imported your data, run an sql query and prepared a first visualization. You can be proud of yourself <img class="emoji" title=":cocktail:" alt=":cocktail:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f378.png" height="20" width="20"> In the next sections we'll dive deeper in particular parts of the flow. We'll focus of course on the sql query preparation.</p>
+<p>That's it, you've just created you first end-to-end data project <img class="emoji" title=":rocket:" alt=":rocket:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png" height="20" width="20"> You've set up a database, imported your data, run a sql query and prepared a first visualization. You can be proud of yourself <img class="emoji" title=":cocktail:" alt=":cocktail:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f378.png" height="20" width="20"> In the next sections we'll dive deeper in particular parts of the flow. We'll focus of course on the sql query preparation.</p>
 
 </div>
 </div>
