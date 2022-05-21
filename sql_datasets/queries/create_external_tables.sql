@@ -30,7 +30,6 @@ CREATE OR REPLACE EXTERNAL TABLE
     amount_tax NUMERIC,
     amount_gross NUMERIC,
     buyer_id STRING,
-    seller_id STRING,
   )
 OPTIONS (
   format = 'GOOGLE_SHEETS',
@@ -57,3 +56,18 @@ OPTIONS (
   skip_leading_rows = 1
 );
 
+CREATE OR REPLACE EXTERNAL TABLE
+  `sql-by-creaitive-studio`.mistic_db_raw.payments
+  (
+  payment_id NUMERIC,
+  payment_date DATE,
+  title STRING,
+  amount NUMERIC,
+  sender STRING,
+  )
+OPTIONS (
+  format = 'GOOGLE_SHEETS',
+  uris = ['https://docs.google.com/spreadsheets/d/1rq4JCcytVO6LQFZTp37Q_qm6gy4XZdXRLYpg5BwzS4Q'],
+  sheet_range = 'payments!A:E',
+  skip_leading_rows = 1
+);
